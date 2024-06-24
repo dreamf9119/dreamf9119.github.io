@@ -20,11 +20,11 @@
       
         <tags>
             
+            <tag> boot </tag>
+            
             <tag> adb </tag>
             
             <tag> 刷机 </tag>
-            
-            <tag> boot </tag>
             
         </tags>
       
@@ -64,7 +64,7 @@
       <link href="/2024/06/21/hexo%E9%83%A8%E7%BD%B2/"/>
       <url>/2024/06/21/hexo%E9%83%A8%E7%BD%B2/</url>
       
-        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul><li><a href="https://so.csdn.net/so/search?q=Hexo&spm=1001.2101.3001.7020">Hexo</a> 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown 解析文章，在几秒内，即可利用靓丽的主题生成静态网页。通过 Hexo 的官方网站 <a href="https://hexo.io/">https://hexo.io/</a> 了解更多关于这个博客框架，它拥有中文文档。</li></ul><h1 id="一、nodejs"><a href="#一、nodejs" class="headerlink" title="一、nodejs"></a>一、nodejs</h1><h2 id="1、安装"><a href="#1、安装" class="headerlink" title="1、安装"></a>1、安装</h2><ul><li><a href="https://nodejs.org/en">官网地址</a></li><li>更改默认安装位置，安装<code>D:\nodejs</code>路径下</li><li><code>D:\nodejs</code>目录下新建<code>node_cache</code>和<code>node_global</code>文件夹</li><li><code>D:\nodejs\node_cache</code>目录下新建<code>_logs</code>文件夹</li><li>不勾选，避免下载python、vscode等工具<br><img src="https://cf.dreamf.fun/image/202406212124210.png" alt="image.png"></li></ul><h2 id="2、系统变量"><a href="#2、系统变量" class="headerlink" title="2、系统变量"></a>2、系统变量</h2><ul><li>指定<code>D:\nodejs\node_cache</code></li><li>指定<code>D:\nodejs\node_global</code></li><li>指定<code>D:\nodejs\</code></li><li><img src="https://cf.dreamf.fun/image/202406062228650.png" alt="image.png"></li></ul><h2 id="3、设置文件位置"><a href="#3、设置文件位置" class="headerlink" title="3、设置文件位置"></a>3、设置文件位置</h2><ul><li>prefix &#x3D; 创建的node_global文件夹所在路径<ul><li>npm config set prefix <code>D:\Nodejs\node_global</code></li></ul></li><li>cache &#x3D; 创建的node_cache文件夹所在路径<ul><li>npm config set cache <code>D:\Nodejs\node_cache</code></li></ul><p>  #补充 注意该命令的路径最好手打，避免符号、格式错误</p></li></ul><h2 id="4、镜像源"><a href="#4、镜像源" class="headerlink" title="4、镜像源"></a>4、镜像源</h2><ul><li><p>查看当前镜像源<br>  npm get registry</p></li><li><p>更改指定源：如淘宝。<br>  npm config set registry <a href="https://registry.npmmirror.com/">https://registry.npmmirror.com/</a><br>  #补充 </p></li><li><p>你在npm的时候可能会碰到request  to <a href="https://registry.npm.taobao.org/html2canvas">https://registry.npm.taobao.org/html2canvas</a> failed, reason: certificate has expired，请修改你的淘宝镜像配置</p></li><li><p>旧镜像地址 <code>已失效</code>：<a href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org/</a>                              </p></li><li><p>新镜像地址：<a href="https://registry.npmmirror.com/">https://registry.npmmirror.com/</a></p></li></ul><h2 id="5、验证"><a href="#5、验证" class="headerlink" title="5、验证"></a>5、验证</h2><ul><li>node -v</li><li>npm -v<br><img src="https://cf.dreamf.fun/image/202406212118056.png" alt="img"></li></ul><h1 id="二、Git"><a href="#二、Git" class="headerlink" title="二、Git"></a>二、Git</h1><h2 id="1、安装-1"><a href="#1、安装-1" class="headerlink" title="1、安装"></a>1、安装</h2><ul><li><a href="https://git-scm.com/">官网地址</a>、<a href="https://registry.npmmirror.com/binary.html?path=git-for-windows/">阿里云镜像地址</a></li><li>更改默认安装位置，安装<code>D:\Git</code>路径下</li><li>安装组件选择：根据需要选择<br><img src="https://cf.dreamf.fun/image/202406212133390.png" alt="img"></li><li>选择默认的编辑器：默认vim</li><li>调整Git的环境变量：一般默认选择第二项<ul><li><p>Use Git from Git Bash only</p><ul><li>仅使用Git Bash中的Git<br>  这是最谨慎的选择，因为它不会修改你的系统环境变量（PATH）。你只能在Git Bash中使用Git命令行工具。</li></ul></li><li><p>Git from the command line and also from 3rd-party software</p><ul><li>从命令行和第三方软件中使用Git<br>  这是推荐的选项，它会将一些最基本的Git包装器添加到你的系统环境变量（PATH），以避免在环境中混乱地添加可选的Unix工具。你将能够从Git Bash、命令提示符和Windows PowerShell中使用Git，并且可以在PATH中寻找Git的任何第三方软件。</li></ul></li><li><p>Use Git and optional Unix tools from the Command Prompt</p><ul><li>从命令提示符中使用Git和可选的Unix工具<br>  这个选项会将Git和可选的Unix工具都添加到你的系统环境变量（PATH）中。需要注意的是，这将覆盖Windows中的一些工具（如”find”和”sort”）。只有当你完全理解这些影响并愿意接受时，才应选择这个选项。<br>  <img src="https://cf.dreamf.fun/image/202406212142389.png" alt="image.png"></li></ul></li></ul></li><li>选择 SSH 执行文件：默认，第一项</li><li>一路默认，下一步</li></ul><h2 id="2、系统变量-1"><a href="#2、系统变量-1" class="headerlink" title="2、系统变量"></a>2、系统变量</h2><ul><li>指定<code>D:\Git\bin</code></li><li>指定<code>D:\Git</code><br><img src="https://cf.dreamf.fun/image/202406212157304.png" alt="image.png"></li></ul><h2 id="3、验证"><a href="#3、验证" class="headerlink" title="3、验证"></a>3、验证</h2><ul><li>git –version<br><img src="https://cf.dreamf.fun/image/202406212158938.png" alt="image.png"></li></ul><h1 id="三、hexo"><a href="#三、hexo" class="headerlink" title="三、hexo"></a>三、hexo</h1><p><strong><code>首先必须管理员运行Git命令行程序,以下命令都在git命令行中运行</code></strong></p><h2 id="1、安装-2"><a href="#1、安装-2" class="headerlink" title="1、安装"></a>1、安装</h2><ul><li><p>git执行安装命令<br>  npm install -g hexo-cli</p></li><li><p>等待安装结束。  </p></li><li><p>选择一个目录来初始化博客：（例如 E:&#x2F;gihub）,该目录必须空的。</p></li><li><p>git执行初始化命令</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd e:/github</span><br><span class="line">hexo init</span><br></pre></td></tr></table></figure></li><li><p>执行成功后，安装两个插件</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">npm install hexo-server</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">或者按照官方文档 直接</span></span><br><span class="line">npm install</span><br></pre></td></tr></table></figure></li><li><p>然后本机可查看博客：运行该命令</p><ul><li>hexo s   或</li><li>hexo server<br>  <img src="https://cf.dreamf.fun/image/202406212208904.png" alt="image.png"></li></ul></li><li><p>打开浏览器输入<code>localhost:4000</code>可以看到初始界面。按 Ctrl+C 关闭本地服务器。</p></li></ul><h2 id="2、常用命令"><a href="#2、常用命令" class="headerlink" title="2、常用命令"></a>2、常用命令</h2><ul><li>清除缓存<ul><li>hexo clean   或</li><li>hexo c</li></ul></li><li>生成静态文件<ul><li>hexo generate  或</li><li>hexo g</li></ul></li><li>启动服务器<ul><li>hexo server 或</li><li>hexo s</li></ul><p>  #补充 以上3条命令重启hexo服务</p></li><li>新建发布文章<ul><li>hexo new xxx<br>  <code>github\source\_posts</code>下新建一个xxx.md</li></ul></li><li>新建草稿<ul><li>hexo new draft xxx<br>  <code>github\source\_drafts</code>下新建一个xxx.md,此时本地服务器上并没有更新出该文章</li></ul></li><li>发布草稿<ul><li>hexo publish xxx<br>  你会发现<code>github\source\_drafts</code>下的xxx.md不见了，跑到了_posts里面，说明草稿发布成功了。</li></ul></li></ul><h2 id="3、验证-1"><a href="#3、验证-1" class="headerlink" title="3、验证"></a>3、验证</h2><ul><li>hexo –verson<br><img src="/" alt="Uploading file...09qtx"></li></ul><h1 id="四、Github"><a href="#四、Github" class="headerlink" title="四、Github"></a>四、Github</h1><h2 id="1、仓库创建"><a href="#1、仓库创建" class="headerlink" title="1、仓库创建"></a>1、仓库创建</h2><ul><li>打开 GitHub ，点击 new 一个repository，创建一个新的仓库，仓库名称必须要遵守 GitHub Pages 的格式： 用户名.github.io ，否则会出问题，并且勾选 Initialize this repository with a README ，如下图所示。<br><img src="https://cf.dreamf.fun/image/202406212212720.png" alt="image.png"></li><li>建好仓库后， <strong>Settings</strong>–&gt; GitHub Pages ，该页面存在GitHub Pages 默认创建好的域名。在浏览器中访问就可以看到一个初始的界面，这就是博客的默认地址</li><li>custom domain：填写自定义域名<ul><li>CNAME：自定义域名指向GitHub默认地址</li><li>A：@指向185.199.108.153、185.199.109.153、185.199.110.153、185.199.111.153</li></ul></li><li><code>注意branch要和hexo的配置文件_config.yml里的deploy-branch保持一致</code>，避免文章看不到。可通过修改GitHubpage页面的默认分支实现</li></ul><p><img src="https://cf.dreamf.fun/image/202406212329516.png" alt="image.png"></p><h2 id="2、SSH设置"><a href="#2、SSH设置" class="headerlink" title="2、SSH设置"></a>2、SSH设置</h2><ul><li>务必确保在 <strong>本地PC</strong> 已经完成了Node.js、Git 和 Hexo 的安装，打开 Git Bash ，如果是第一次使使用 Git 的话：</li><li>#补充 不是第一次可直接到<code>C:\Users\jiuji\.ssh</code>下寻找id_rsa.pub文件</li></ul><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">以下 user.name 和 user.email 输入自己的github用户名和邮箱，示例：</span></span><br><span class="line">git config --global user.name &quot;ideallove&quot;</span><br><span class="line">git config --global user.email ideallove@example.com</span><br><span class="line"></span><br></pre></td></tr></table></figure><ul><li><p>使用 ssh-keygen 生成私钥和公钥：</p><ul><li>ssh-keygen -t rsa</li></ul></li><li><p>一路回车，找到你的的密钥 <code>id_rsa</code> 和公钥 <code>id_rsa.pub</code> 的位置<br><img src="https://cf.dreamf.fun/image/202406212216942.png" alt="image.png"></p></li><li><p> GitHub <strong>头像下的 Settings</strong> 里找到添加 SSH key，点击<strong>New SSH key</strong> 。<br><img src="https://cf.dreamf.fun/image/202406212220777.png" alt="image.png"></p></li><li><p>将刚刚生成的公钥 <code>id_rsa.pub</code> 文件里的内容复制到 Key 里面，然后选择添加，GitHub 会提示输入密码确认。</p></li><li><p><strong>本地PC</strong> 的 Git bash 上输入</p><ul><li>ssh -T <a href="mailto:&#103;&#105;&#116;&#64;&#103;&#x69;&#116;&#x68;&#117;&#98;&#x2e;&#x63;&#x6f;&#109;">&#103;&#105;&#116;&#64;&#103;&#x69;&#116;&#x68;&#117;&#98;&#x2e;&#x63;&#x6f;&#109;</a><br>  <img src="https://cf.dreamf.fun/image/202406212221119.png" alt="image.png"></li></ul><p>  #补充 第一次的时候依旧会让你 yes 确认 ，如果看到 Hi 后面是自己的用户名，就说明成功了</p></li></ul><h2 id="3、在本地PC上完成推送部署"><a href="#3、在本地PC上完成推送部署" class="headerlink" title="3、在本地PC上完成推送部署"></a>3、在本地PC上完成推送部署</h2><ul><li>在刚刚我们生成的 E:&#x2F;github 目录下，找到 hexo 的配置文件 <code>_config.yml</code> ，在最下面有个 <code>deploy</code> 的配置，在那里<strong>修改为自己的 ID</strong></li><li><img src="https://cf.dreamf.fun/image/202406212223917.png" alt="image.png"></li></ul><p>#补充 缩进一定不能出问题。</p><ul><li>保存并退出，然后发布到 GitHub 上<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">当然也可简写成</span></span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">这里，不一定每次都要 clean，clean 会清除缓存，导致一些计数脚本清零。</span></span><br></pre></td></tr></table></figure></li><li>我们就可以在<strong>本地PC</strong> 浏览器上输入 GitHub Pages 的域名 <code>https://自己的用户名.github.io</code> 访问我们的博客了。</li></ul><h2 id="4、创建CNAME-md"><a href="#4、创建CNAME-md" class="headerlink" title="4、创建CNAME.md"></a>4、创建CNAME.md</h2><ul><li><p>Hexo 会将 public 目录中的文件和目录推送至 config.yml 中指定的远端仓库和分支中，并且完全覆盖该分支下的已有内容。</p></li><li><p>因为public 文件下没有CNAME文件，所以推送的时候远程分支的内容因为被完全覆盖所以CNAME文件也会被删除，所以就会导致404。</p></li><li><p>而public下的文件是由source文件夹的内容生成的，因此正确的配置绑定域名方法应该是在source文件下（直接在public文件夹下也可以）新建CNAME.md文件并配置域名。<br><img src="https://cf.dreamf.fun/image/202406222210197.png" alt="image.png"></p></li></ul>]]></content>
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul><li><a href="https://so.csdn.net/so/search?q=Hexo&spm=1001.2101.3001.7020">Hexo</a> 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown 解析文章，在几秒内，即可利用靓丽的主题生成静态网页。通过 Hexo 的官方网站 <a href="https://hexo.io/">https://hexo.io/</a> 了解更多关于这个博客框架，它拥有中文文档。</li></ul><h1 id="一、nodejs"><a href="#一、nodejs" class="headerlink" title="一、nodejs"></a>一、nodejs</h1><h2 id="1、安装"><a href="#1、安装" class="headerlink" title="1、安装"></a>1、安装</h2><ul><li><a href="https://nodejs.org/en">官网地址</a></li><li>更改默认安装位置，安装<code>D:\nodejs</code>路径下</li><li><code>D:\nodejs</code>目录下新建<code>node_cache</code>和<code>node_global</code>文件夹</li><li><code>D:\nodejs\node_cache</code>目录下新建<code>_logs</code>文件夹</li><li>不勾选，避免下载python、vscode等工具<br><img src="https://cf.dreamf.fun/image/202406212124210.png" alt="image.png"></li></ul><h2 id="2、系统变量"><a href="#2、系统变量" class="headerlink" title="2、系统变量"></a>2、系统变量</h2><ul><li>指定<code>D:\nodejs\node_cache</code></li><li>指定<code>D:\nodejs\node_global</code></li><li>指定<code>D:\nodejs\</code></li><li><img src="https://cf.dreamf.fun/image/202406062228650.png" alt="image.png"></li></ul><h2 id="3、设置文件位置"><a href="#3、设置文件位置" class="headerlink" title="3、设置文件位置"></a>3、设置文件位置</h2><ul><li>prefix &#x3D; 创建的node_global文件夹所在路径<ul><li>npm config set prefix <code>D:\Nodejs\node_global</code></li></ul></li><li>cache &#x3D; 创建的node_cache文件夹所在路径<ul><li>npm config set cache <code>D:\Nodejs\node_cache</code></li></ul><p>  #补充 注意该命令的路径最好手打，避免符号、格式错误</p></li></ul><h2 id="4、镜像源"><a href="#4、镜像源" class="headerlink" title="4、镜像源"></a>4、镜像源</h2><ul><li><p>查看当前镜像源<br>  npm get registry</p></li><li><p>更改指定源：如淘宝。<br>  npm config set registry <a href="https://registry.npmmirror.com/">https://registry.npmmirror.com/</a><br>  #补充 </p></li><li><p>你在npm的时候可能会碰到request  to <a href="https://registry.npm.taobao.org/html2canvas">https://registry.npm.taobao.org/html2canvas</a> failed, reason: certificate has expired，请修改你的淘宝镜像配置</p></li><li><p>旧镜像地址 <code>已失效</code>：<a href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org/</a>                              </p></li><li><p>新镜像地址：<a href="https://registry.npmmirror.com/">https://registry.npmmirror.com/</a></p></li></ul><h2 id="5、验证"><a href="#5、验证" class="headerlink" title="5、验证"></a>5、验证</h2><ul><li>node -v</li><li>npm -v<br><img src="https://cf.dreamf.fun/image/202406212118056.png" alt="img"></li></ul><h1 id="二、Git"><a href="#二、Git" class="headerlink" title="二、Git"></a>二、Git</h1><h2 id="1、安装-1"><a href="#1、安装-1" class="headerlink" title="1、安装"></a>1、安装</h2><ul><li><a href="https://git-scm.com/">官网地址</a>、<a href="https://registry.npmmirror.com/binary.html?path=git-for-windows/">阿里云镜像地址</a></li><li>更改默认安装位置，安装<code>D:\Git</code>路径下</li><li>安装组件选择：根据需要选择<br><img src="https://cf.dreamf.fun/image/202406212133390.png" alt="img"></li><li>选择默认的编辑器：默认vim</li><li>调整Git的环境变量：一般默认选择第二项<ul><li><p>Use Git from Git Bash only</p><ul><li>仅使用Git Bash中的Git<br>  这是最谨慎的选择，因为它不会修改你的系统环境变量（PATH）。你只能在Git Bash中使用Git命令行工具。</li></ul></li><li><p>Git from the command line and also from 3rd-party software</p><ul><li>从命令行和第三方软件中使用Git<br>  这是推荐的选项，它会将一些最基本的Git包装器添加到你的系统环境变量（PATH），以避免在环境中混乱地添加可选的Unix工具。你将能够从Git Bash、命令提示符和Windows PowerShell中使用Git，并且可以在PATH中寻找Git的任何第三方软件。</li></ul></li><li><p>Use Git and optional Unix tools from the Command Prompt</p><ul><li>从命令提示符中使用Git和可选的Unix工具<br>  这个选项会将Git和可选的Unix工具都添加到你的系统环境变量（PATH）中。需要注意的是，这将覆盖Windows中的一些工具（如”find”和”sort”）。只有当你完全理解这些影响并愿意接受时，才应选择这个选项。<br>  <img src="https://cf.dreamf.fun/image/202406212142389.png" alt="image.png"></li></ul></li></ul></li><li>选择 SSH 执行文件：默认，第一项</li><li>一路默认，下一步</li></ul><h2 id="2、系统变量-1"><a href="#2、系统变量-1" class="headerlink" title="2、系统变量"></a>2、系统变量</h2><ul><li>指定<code>D:\Git\bin</code></li><li>指定<code>D:\Git</code><br><img src="https://cf.dreamf.fun/image/202406212157304.png" alt="image.png"></li></ul><h2 id="3、验证"><a href="#3、验证" class="headerlink" title="3、验证"></a>3、验证</h2><ul><li>git –version<br><img src="https://cf.dreamf.fun/image/202406212158938.png" alt="image.png"></li></ul><h1 id="三、hexo"><a href="#三、hexo" class="headerlink" title="三、hexo"></a>三、hexo</h1><p><strong><code>首先必须管理员运行Git命令行程序,以下命令都在git命令行中运行</code></strong></p><h2 id="1、安装-2"><a href="#1、安装-2" class="headerlink" title="1、安装"></a>1、安装</h2><ul><li><p>git执行安装命令<br>  npm install -g hexo-cli</p></li><li><p>等待安装结束。  </p></li><li><p>选择一个目录来初始化博客：（例如 E:&#x2F;gihub）,该目录必须空的。</p></li><li><p>git执行初始化命令</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd e:/github</span><br><span class="line">hexo init</span><br></pre></td></tr></table></figure></li><li><p>执行成功后，安装两个插件</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">npm install hexo-server</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">或者按照官方文档 直接</span></span><br><span class="line">npm install</span><br></pre></td></tr></table></figure></li><li><p>然后本机可查看博客：运行该命令</p><ul><li>hexo s   或</li><li>hexo server<br>  <img src="https://cf.dreamf.fun/image/202406212208904.png" alt="image.png"></li></ul></li><li><p>打开浏览器输入<code>localhost:4000</code>可以看到初始界面。按 Ctrl+C 关闭本地服务器。</p></li></ul><h2 id="2、常用命令"><a href="#2、常用命令" class="headerlink" title="2、常用命令"></a>2、常用命令</h2><ul><li>清除缓存<ul><li>hexo clean   或</li><li>hexo c</li></ul></li><li>生成静态文件<ul><li>hexo generate  或</li><li>hexo g</li></ul></li><li>启动服务器<ul><li>hexo server 或</li><li>hexo s</li></ul><p>  #补充 以上3条命令重启hexo服务</p></li><li>新建发布文章<ul><li>hexo new xxx<br>  <code>github\source\_posts</code>下新建一个xxx.md</li></ul></li><li>新建草稿<ul><li>hexo new draft xxx<br>  <code>github\source\_drafts</code>下新建一个xxx.md,此时本地服务器上并没有更新出该文章</li></ul></li><li>发布草稿<ul><li>hexo publish xxx<br>  你会发现<code>github\source\_drafts</code>下的xxx.md不见了，跑到了_posts里面，说明草稿发布成功了。</li></ul></li></ul><h2 id="3、验证-1"><a href="#3、验证-1" class="headerlink" title="3、验证"></a>3、验证</h2><ul><li>hexo –verson<br><img src="/" alt="Uploading file...09qtx"></li></ul><h1 id="四、Github"><a href="#四、Github" class="headerlink" title="四、Github"></a>四、Github</h1><h2 id="1、仓库创建"><a href="#1、仓库创建" class="headerlink" title="1、仓库创建"></a>1、仓库创建</h2><ul><li>打开 GitHub ，点击 new 一个repository，创建一个新的仓库，仓库名称必须要遵守 GitHub Pages 的格式： 用户名.github.io ，否则会出问题，并且勾选 Initialize this repository with a README ，如下图所示。<br><img src="https://cf.dreamf.fun/image/202406212212720.png" alt="image.png"></li><li>建好仓库后， <strong>Settings</strong>–&gt; GitHub Pages ，该页面存在GitHub Pages 默认创建好的域名。在浏览器中访问就可以看到一个初始的界面，这就是博客的默认地址</li><li>custom domain：填写自定义域名<ul><li>CNAME：自定义域名指向GitHub默认地址</li><li>A：@指向185.199.108.153、185.199.109.153、185.199.110.153、185.199.111.153</li></ul></li><li><code>注意branch要和hexo的配置文件_config.yml里的deploy-branch保持一致</code>，避免文章看不到。可通过修改GitHubpage页面的默认分支实现</li></ul><p><img src="https://cf.dreamf.fun/image/202406212329516.png" alt="image.png"></p><h2 id="2、SSH设置"><a href="#2、SSH设置" class="headerlink" title="2、SSH设置"></a>2、SSH设置</h2><ul><li>务必确保在 <strong>本地PC</strong> 已经完成了Node.js、Git 和 Hexo 的安装，打开 Git Bash ，如果是第一次使使用 Git 的话：</li><li>#补充 不是第一次可直接到<code>C:\Users\jiuji\.ssh</code>下寻找id_rsa.pub文件</li></ul><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">以下 user.name 和 user.email 输入自己的github用户名和邮箱，示例：</span></span><br><span class="line">git config --global user.name &quot;ideallove&quot;</span><br><span class="line">git config --global user.email ideallove@example.com</span><br><span class="line"></span><br></pre></td></tr></table></figure><ul><li><p>使用 ssh-keygen 生成私钥和公钥：</p><ul><li>ssh-keygen -t rsa</li></ul></li><li><p>一路回车，找到你的的密钥 <code>id_rsa</code> 和公钥 <code>id_rsa.pub</code> 的位置<br><img src="https://cf.dreamf.fun/image/202406212216942.png" alt="image.png"></p></li><li><p> GitHub <strong>头像下的 Settings</strong> 里找到添加 SSH key，点击<strong>New SSH key</strong> 。<br><img src="https://cf.dreamf.fun/image/202406212220777.png" alt="image.png"></p></li><li><p>将刚刚生成的公钥 <code>id_rsa.pub</code> 文件里的内容复制到 Key 里面，然后选择添加，GitHub 会提示输入密码确认。</p></li><li><p><strong>本地PC</strong> 的 Git bash 上输入</p><ul><li>ssh -T <a href="mailto:&#103;&#105;&#116;&#64;&#103;&#105;&#116;&#x68;&#x75;&#x62;&#x2e;&#99;&#x6f;&#x6d;">&#103;&#105;&#116;&#64;&#103;&#105;&#116;&#x68;&#x75;&#x62;&#x2e;&#99;&#x6f;&#x6d;</a><br>  <img src="https://cf.dreamf.fun/image/202406212221119.png" alt="image.png"></li></ul><p>  #补充 第一次的时候依旧会让你 yes 确认 ，如果看到 Hi 后面是自己的用户名，就说明成功了</p></li></ul><h2 id="3、在本地PC上完成推送部署"><a href="#3、在本地PC上完成推送部署" class="headerlink" title="3、在本地PC上完成推送部署"></a>3、在本地PC上完成推送部署</h2><ul><li>在刚刚我们生成的 E:&#x2F;github 目录下，找到 hexo 的配置文件 <code>_config.yml</code> ，在最下面有个 <code>deploy</code> 的配置，在那里<strong>修改为自己的 ID</strong></li><li><img src="https://cf.dreamf.fun/image/202406212223917.png" alt="image.png"></li></ul><p>#补充 缩进一定不能出问题。</p><ul><li>保存并退出，然后发布到 GitHub 上<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">当然也可简写成</span></span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">这里，不一定每次都要 clean，clean 会清除缓存，导致一些计数脚本清零。</span></span><br></pre></td></tr></table></figure></li><li>我们就可以在<strong>本地PC</strong> 浏览器上输入 GitHub Pages 的域名 <code>https://自己的用户名.github.io</code> 访问我们的博客了。</li></ul><h2 id="4、创建CNAME-md"><a href="#4、创建CNAME-md" class="headerlink" title="4、创建CNAME.md"></a>4、创建CNAME.md</h2><ul><li><p>Hexo 会将 public 目录中的文件和目录推送至 config.yml 中指定的远端仓库和分支中，并且完全覆盖该分支下的已有内容。</p></li><li><p>因为public 文件下没有CNAME文件，所以推送的时候远程分支的内容因为被完全覆盖所以CNAME文件也会被删除，所以就会导致404。</p></li><li><p>而public下的文件是由source文件夹的内容生成的，因此正确的配置绑定域名方法应该是在source文件下（直接在public文件夹下也可以）新建CNAME.md文件并配置域名。<br><img src="https://cf.dreamf.fun/image/202406222210197.png" alt="image.png"></p></li></ul>]]></content>
       
       
       <categories>
@@ -76,11 +76,11 @@
       
         <tags>
             
-            <tag> github </tag>
-            
             <tag> 博客 </tag>
             
             <tag> hexo </tag>
+            
+            <tag> github </tag>
             
             <tag> git </tag>
             
@@ -109,15 +109,15 @@
       
         <tags>
             
-            <tag> adb </tag>
-            
             <tag> Apatch </tag>
             
-            <tag> root </tag>
+            <tag> Magisk </tag>
             
             <tag> KernelSU </tag>
             
-            <tag> Magisk </tag>
+            <tag> root </tag>
+            
+            <tag> adb </tag>
             
             <tag> twrp </tag>
             
@@ -144,77 +144,13 @@
       
         <tags>
             
-            <tag> adb </tag>
-            
-            <tag> 刷机 </tag>
+            <tag> KernelSU </tag>
             
             <tag> root </tag>
             
-            <tag> KernelSU </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Apatch</title>
-      <link href="/2024/05/12/Apatch/"/>
-      <url>/2024/05/12/Apatch/</url>
-      
-        <content type="html"><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><ul><li><p>什么是Apatch<br>  Apatch是内核级的root方案，相较于传统的Magisk，具有更强的隐蔽性。<br>  支持修补boot.img获取root权限。这意味着Apatch可以更为简单地获取root权限，同时修补boot.img的方式意味着可以使用第三方内核，比如潘多拉内核等。</p></li><li><p>本教程适合哪些人<br>  未root而想root的用户、已通过Magisk获取root权限而想转至Apatch的用户、已通过刷入通用内 核获取root权限而想转至修补boot.img模式的KSU用户。</p></li><li><p>Apatch原理</p><ul><li>Apatch替换官方boot.img中GKI内核的kernel文件,然后再打包刷入boot分区</li></ul><p>  #补充 Apatch目前支持一些内核版本4.x的内核，但需要你去确认。</p></li></ul><p>&#96;&#96;所有手机的kernel文件一直在boot分区，所以apatch一直修补boot.img镜像。</p><p>#注意 &#x3D;&#x3D;Apatch 支持内核版本5.x以上的手机,4.x仅支持一部分，刷入前提前确认&#x3D;&#x3D;<br>#补充 如果你的设备已root，请通过下载系统包的方式提取内核而不是直接从设备提取，因为<code>已root设备的内核已被修改。</code></p><p><code>刷机千万条，数据第一条。在刷机之前强烈建议你进行数据备份，防止手机变砖后数据丢失！！！</code></p><p><code>提前开启USB调试模式 </code>备份官方包的boot.mg   init_boot.img文件<br>&#96;&#96;备好线刷包，变砖直接线刷</p><h1 id="一、Apatch刷入"><a href="#一、Apatch刷入" class="headerlink" title="一、Apatch刷入"></a>一、Apatch刷入</h1><h2 id="1-fastboot刷入"><a href="#1-fastboot刷入" class="headerlink" title="1. fastboot刷入"></a>1. fastboot刷入</h2><p>1、小米解锁 <strong>Bootloader</strong>：<a href="https://magiskcn.com/xiaomi-unlock">Xiaomi-unlock</a></p><p>2、下载系统包：<a href="https://magiskcn.com/rom">ROM下载 - Magisk中文网 (magiskcn.com)</a>（一定要下载和手机系统版本一致的系统包）</p><p>3、提取 <strong>boot.img</strong> ：<a href="https://magiskcn.com/payload-dumper-go-boot">payload-dumper-go-boot</a>（如果系统包有 <strong>boot.img</strong>，可以跳过此步骤）<br>#补充<a href="https://dumper.pedroz.eu.org/">在线提取boot、init_boot镜像</a><br>#补充    <code>线刷包：解压后，在images文件夹找到boot.img</code><br>        <code>卡刷包：解压后，找到payload.bin，通过上述工具或MT管理器获取boot.img</code></p><p>4、手机插电脑，文件传输模式，复制 <strong>boot.img</strong> 到手机 <strong>Download</strong> 目录</p><p>5、手机下载 <strong>APatch</strong> APP 安装：<a href="https://apatch.app/apatch-download">APatch-download</a></p><ul><li><ul><li>有root权限，可kernel SU直接刷入原厂(init_)boot镜像,app选择修补并安装，重启结束。</li></ul></li></ul><p>6、手机打开 <strong>APatch</strong>，①：选择并修补一个文件 ②：选择 <strong>boot</strong>.img – ③：输入超级密钥，开始修补 – ④：修补完成（修补生成 <strong>apatch_patched-xxx.img</strong> 文件在 <strong>Download</strong> 目录）<br>#提示 <code>注意保存超级密钥</code>(字母+数字的组合方式)</p><p><img src="https://cdn.apatch.app/wp-content/uploads/2024/04/8a8bb7cd343aa2a.jpg" alt="APatch安装教程插图" title="APatch安装教程插图"></p><p>7、电脑下载 <strong>adb-fastboot</strong>：<a href="https://mrzzoxo.lanzoui.com/b02plghuh">蓝奏盘</a>（解压出来）</p><p>8、手机打开 文件传输模式，打开 <strong>Download</strong> 目录，把 <strong>apatch.img</strong> 复制到电脑 <strong>adb-fastboot</strong> 目录</p><p><img src="https://cdn.apatch.app/wp-content/uploads/2024/04/693a9fdd4c2fd07.png" alt="APatch安装教程插图1" title="APatch安装教程插图1"></p><p>9、手机进入 <strong>Bootloader</strong> 模式，再插入电脑。<br>（手机关机，电源键+音量下键，两个键长按）</p><p>#注意 &#96;&#96;如果你已获取过root权限或修改过内核，请执行以下操作，否则跳过以下操作。<br>    因为设备的内核已被修改，因此在继续操作之前，需要刷回原厂boot。系统包解包后将boot.img移至和adb工具同一个文件夹（注意是boot.img，即使是init_boot分区的手机也是boot.img）。</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">临时启动：fastboot boot boot.img  #测试img是否可用，手机正常重启，说明boot可安全刷入</span><br><span class="line"></span><br><span class="line">单设备：fastboot flash boot boot.img</span><br><span class="line">多设备：fastboot -s 设备码  flash boot boot.img</span><br></pre></td></tr></table></figure><p>10、打开“<strong>打开CMD命令行.bat</strong>”，输入下面的命令&#x3D;&#x3D;(注意需要adb、fastboot工具)&#x3D;&#x3D;<br>#补充 apatch.img 每次修补的名字都不一样，&#x3D;&#x3D;使用的时候请更改为(init_)boot.img，避免bug.&#x3D;&#x3D;<br>#补充 注意刷入的boot分区,<code>a</code>或<code>b</code>,电脑ADB刷入不需要在意分区问题，会自动匹配当前分区。</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">临时启动：fastboot boot 修补文件名 #测试img是否可用，手机正常重启，说明boot可安全刷入</span><br><span class="line"></span><br><span class="line">单设备：fastboot flash boot 修补文件名</span><br><span class="line">多设备：fastboot -s 设备码  flash boot 修补文件名</span><br><span class="line"></span><br><span class="line">fastboot flash boot_ab 修补文件名</span><br></pre></td></tr></table></figure><p>#补充 注意使用adb时，单设备和多设备命令不一样。[[..&#x2F;..&#x2F;adb超级教程#为命令指定目标设备|详情参考]]</p><p>11、输出下面这三行代码，就是成功刷入了。再使用指令 <code>fastboot reboot</code> 重启手机。</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Sending &#x27;boot_b&#x27; (196608 KB) OKAY [ 4.697s]</span><br><span class="line">Writing &#x27;boot_b&#x27;             OKAY [ 0.512s]</span><br><span class="line">Finished. Total time: 5.235s</span><br></pre></td></tr></table></figure><p><img src="https://cdn.apatch.app/wp-content/uploads/2024/04/9d607a663f3e9b0.png" alt="APatch安装教程插图3" title="APatch安装教程插图3"></p><p>12、手机开机 打开 <strong>APatch</strong> ，①：输入 超级密钥 – ②：安装 系统补丁 – ③：生效中😀 成功刷入</p><p><img src="https://cdn.apatch.app/wp-content/uploads/2024/04/894f782a148b33a.jpg" alt="APatch安装教程插图4" title="APatch安装教程插图4"></p><hr><p>#提示 :<br>    如果刷入 <strong>apatch.img</strong> 不能开机，可以把前面提取的 <strong>boot.img</strong> 通过 <strong>fastboot</strong> 刷回去，恢复原 <strong>boot</strong>，一般都能正常开机！<br>    <strong>boot.img</strong> 保留一份在电脑，避免出问题了可以自救下！</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">临时启动：fastboot boot boot.img #测试img是否可用，手机正常重启，说明boot可安全刷入</span><br><span class="line"></span><br><span class="line">单设备：fastboot flash boot boot.img</span><br><span class="line">多设备：fastboot -s 设备码  flash boot boot.img</span><br><span class="line"></span><br><span class="line">fastboot flash boot_ab 修补文件名</span><br></pre></td></tr></table></figure><p>#补充 注意刷入的boot分区,<code>a</code>或<code>b</code>,电脑ADB刷入不需要在意分区问题，会自动匹配对应分区。<br>#补充 注意使用adb时，单设备和多设备命令不一样。[[..&#x2F;..&#x2F;adb超级教程#为命令指定目标设备|详情参考]]</p><h2 id="2-rec刷入"><a href="#2-rec刷入" class="headerlink" title="2. rec刷入"></a>2. rec刷入</h2><p>1、小米解锁 <strong>Bootloader</strong>：<a href="https://magiskcn.com/xiaomi-unlock">Xiaomi-unlock</a></p><p>2、下载机子本身版本的线刷包（卡刷包），去小米官方论坛下载就行。小米官方地址：<a href="https://magiskcn.com/rom">ROM下载 - Magisk中文网 (magiskcn.com)</a></p><p>3、解压线刷包，找到boot.img，拷贝到手机。<br>#注意   <code>官方boot.img保存好，后续救砖和apatch升级会用到。</code><br>#补充    <code>线刷包：解压后，在images文件夹找到boot.img</code><br>        <code>卡刷包：解压后，找到payload.bin，通过上述工具或MT管理器获取boot.img</code></p><p>4、手机安装Apatch软件，下载地址：<a href="https://github.com/bmax121/APatch/" title="https://github.com/bmax121/APatch/">查看链接</a>。  </p><p>5、手机打开 <strong>APatch</strong>，①：选择并修补一个文件 ②：选择 <strong>boot</strong>.img – ③：输入超级密钥，开始修补 – ④：修补完成（修补生成 <strong>apatch_patched-xxx.img</strong> 文件在 <strong>Download</strong> 目录）  、<br>#提示 <code>注意保存超级密钥</code><br><img src="https://cdn.apatch.app/wp-content/uploads/2024/04/8a8bb7cd343aa2a.jpg" alt="APatch安装教程插图" title="APatch安装教程插图"></p><p>6、刷入第三方TWRP。TWRP下载地址：<a href="https://www.123pan.com/s/oyZzVv-Dxzjh.html" title="https://www.123pan.com/s/oyZzVv-Dxzjh.html">查看链接</a>，把手机关机，长按开机键和音量减键，进入FASTBOOT模式，通过一键刷入工具一键刷入即可。如果不会操作可以看这位大佬写的教程。<a href="https://www.coolapk.com/feed/45561323?shareKey=YWNkZjEwYTYxYzg0NjVmYjlkY2U~&shareUid=2374840&shareFrom=com.coolapk.market_14.0.3" title="https://www.coolapk.com/feed/45561323?shareKey=YWNkZjEwYTYxYzg0NjVmYjlkY2U~&amp;shareUid=2374840&amp;shareFrom=com.coolapk.market_14.0.3">查看链接</a>  </p><p>7、使用recovery刷入修补后的boot.img文件到boot分区。<br>#补充 注意刷入的boot分区,<code>a</code>或<code>b</code><br>#补充 <code>apatch修补后的boot文件,最好改成boot.img，避免奇怪bug</code></p><h2 id="8、手机开机-打开-APatch-，①：输入-超级密钥-–-②：安装-系统补丁-–-③：生效中😀-成功刷入"><a href="#8、手机开机-打开-APatch-，①：输入-超级密钥-–-②：安装-系统补丁-–-③：生效中😀-成功刷入" class="headerlink" title="8、手机开机 打开 APatch ，①：输入 超级密钥 – ②：安装 系统补丁 – ③：生效中😀 成功刷入***"></a>8、手机开机 打开 <strong>APatch</strong> ，①：输入 超级密钥 – ②：安装 系统补丁 – ③：生效中😀 成功刷入<br><img src="https://cdn.apatch.app/wp-content/uploads/2024/04/894f782a148b33a.jpg" alt="APatch安装教程插图4" title="APatch安装教程插图4"><br>***</h2><p>#提示 :<br>    如果刷入 <strong>apatch.img</strong> 不能开机，可以把前面提取的 <strong>boot.img</strong> 通过 <strong>fastboot</strong> 或REC刷回去，恢复原 <strong>boot</strong>，一般都能正常开机！<br>    <strong>boot.img</strong> 保留一份在电脑，避免出问题了可以自救下！</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">单设备：fastboot flash boot boot.img</span><br><span class="line">多设备：fastboot -s 设备码  flash boot boot.img</span><br><span class="line"></span><br><span class="line">fastboot flash boot_ab 修补文件名</span><br></pre></td></tr></table></figure><p>#补充 REC注意刷入的boot分区,<code>a</code>或<code>b</code>,电脑ADB刷入不需要在意分区问题，会自动匹配对应分区。<br>#补充 注意使用adb时，单设备和多设备命令不一样。[[..&#x2F;..&#x2F;adb超级教程#为命令指定目标设备|详情参考]]</p><h1 id="二、保ROOT升级"><a href="#二、保ROOT升级" class="headerlink" title="二、保ROOT升级"></a>二、保ROOT升级</h1><p>1、下载要升级版本的全量包<br>    可通过系统升级界面下载，然后暂停，后续通过下载助手继续下载。<br>#补充 &#x3D;&#x3D;注意下载完成后的刷机包，复制一份，避免升级失败，还得重新下载。&#x3D;&#x3D;</p><p>2、解压刷机包，找到boot.img，拷贝到手机。<br>#注意   <code>官方boot.img保存好，后续救砖和apatch升级会用到。</code><br>#补充    <code>线刷包：解压后，在images文件夹找到boot.img</code><br>        <code>卡刷包：解压后，找到payload.bin，通过上述工具或MT管理器获取boot.img</code></p><p>3、手机打开 <strong>APatch</strong>，①：选择并修补一个文件 ②：选择 <strong>boot</strong>.img – ③：输入超级密钥，开始修补 – ④：修补完成（修补生成 <strong>apatch_patched-xxx.img</strong> 文件在 <strong>Download</strong> 目录）<br>#注意 <code>修补后的boot.img保存好，后续救砖和apatch升级也会用到。</code></p><p><img src="https://cdn.apatch.app/wp-content/uploads/2024/04/8a8bb7cd343aa2a.jpg" alt="APatch安装教程插图" title="APatch安装教程插图"></p><p>4、系统升级界面导入本地安装包，等待验证，结束后暂不要重启、<br>5、手机打开 <strong>APatch</strong>，①直接安装到未使用的槽位<br>#补充 潘多拉内核系统OTA，可能回提示not patch，还原内核（新系统boot），再直接安装，系统重启进入后，再刷潘多拉。</p><p>6、重启，手机开机 打开 <strong>APatch</strong> ，①：输入 超级密钥 – ②：生效中😀 成功刷入<br><img src="https://cdn.apatch.app/wp-content/uploads/2024/04/8a8bb7cd343aa2a.jpg" alt="APatch安装教程插图" title="APatch安装教程插图"></p><p>#补充 root掉了的话，第3步保存的修补后的boot文件，可直接刷入。</p><h1 id="三、第三方内核"><a href="#三、第三方内核" class="headerlink" title="三、第三方内核"></a>三、第三方内核</h1><pre><code>第三方内核通过修改(init_)boot镜像中的kernel文件，而apatch和kernelsu(gki)也是修改kernel文件，会导致第三方内核刷入后，丢失root。magisk、kernelsu(lkm)通过修补(init_)boot镜像中的ramdisk文件，实现root获取，刷入第三方内核，从而不会丢失root。</code></pre><h2 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h2><ul><li>1、使用Horizon Kernel flasher或者Kernel flasher 将需要的内核刷入系统，此时不重启系统，然后使用Scene或者搞机助手或者其他玩机软件等，提取此时的BOOT文件。</li></ul><p>#注意 内核包是通过AK3压缩包刷入的<br><img src="https://cf.dreamf.fun/image/202405122221023.png" alt="image.png"></p><ul><li><p>2、使用Apatch修补提取出来的这个boot文件。在download文件得到Apatch开头的已修补的boot文件。  </p></li><li><p>3、此时重启手机，进入recovery，然后刷入这个已修补的boot镜像文件。  </p></li><li><p>4、开机，享用第三方内核+Apatch即可。</p></li></ul><p>#注意 此方法通用，但某些内核可以不行，如果无法开机，请准备好线刷包救砖。小白慎试，小白慎试，小白慎试！</p><h2 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h2><p>1、小米解锁 <strong>Bootloader</strong>：<a href="https://magiskcn.com/xiaomi-unlock">Xiaomi-unlock</a><br>2、下载系统包：<a href="https://magiskcn.com/rom">ROM下载 - Magisk中文网 (magiskcn.com)</a>（一定要下载和手机系统版本一致的系统包）<br>3、提取 <strong>boot.img</strong> ：<a href="https://magiskcn.com/payload-dumper-go-boot">payload-dumper-go-boot</a>（如果系统包有 <strong>boot.img</strong>，可以跳过此步骤）<br>#补充<a href="https://dumper.pedroz.eu.org/">在线提取boot、init_boot镜像</a><br>#补充    <code>线刷包：解压后，在images文件夹找到boot.img</code><br>        <code>卡刷包：解压后，找到payload.bin，通过上述工具或MT管理器获取boot.img</code></p><p>4、安装<a href="https://install.appcenter.ms/users/vvb2060/apps/magisk/distribution_groups/public">magisk-alpha</a><br>5、手机打开 <strong>Magisk</strong>，①：选择并修补一个文件 ②：选择 <strong>boot</strong>.img – ③：输入超级密钥，开始修补 – ④：修补完成（修补生成 <strong>magisk_patched-xxx.img</strong> 文件在 <strong>Download</strong> 目录）<br>#注意 <code>修补后的(init_)boot.img保存好，后续救砖和magisk升级也会用到。</code><br>6、通过kernelflash 、scene、爱玩机刷入修补后的(init_)boot.img，重启，alpha获取到root权限</p><p>7.使用Horizon Kernel flasher或者Kernel flasher 将需要的内核刷入系统，重启，然后使用Scene或者搞机助手或者其他玩机软件等，提取此时的BOOT文件。  </p><p>#注意 内核包是通过AK3压缩包刷入的<br><img src="https://cf.dreamf.fun/image/202405122221023.png" alt="image.png"></p><p>8、使用Apatch修补提取出来的这个boot文件。在download文件得到Apatch开头的已修补的boot文件。<br>9、  通过kernelflash 、scene、爱玩机刷入修补后的(init_)boot.img，重启</p><p>10、重启，手机开机 打开 <strong>APatch</strong> ，①：输入 超级密钥 – ②：生效中😀 成功刷入<br>#补充 MT管理器删除data&#x2F;adb&#x2F;目录下的文件，防止检测到magisk残留。<br><img src="https://cdn.apatch.app/wp-content/uploads/2024/04/8a8bb7cd343aa2a.jpg" alt="APatch安装教程插图" title="APatch安装教程插图"></p><h1 id="四、System分区读写（不依赖任何模块）"><a href="#四、System分区读写（不依赖任何模块）" class="headerlink" title="四、System分区读写（不依赖任何模块）"></a>四、System分区读写（不依赖任何模块）</h1><p>前提条件：至少刷入一个模块，且 <code>/data/adb/ap/modules.img</code> 文件存在</p><hr><p>1、已刷入 APatch</p><p>2、手机下载安装：<a href="https://mt2.cn/download/">MT管理器</a> ，并授权 ROOT 权限</p><p>3、打开目录<code>/data/adb/modules</code>创建 <code>.rw</code> 文件夹（前面有个点 . ）</p><p><img src="https://kernelsu.com/wp-content/uploads/2024/05/eccbc87e4b5ce2f.jpg" alt="System分区读写（不依赖任何模块）插图" title="System分区读写（不依赖任何模块）插图"><br>4、打开<code>.rw</code>目录，创建 <code>system</code>文件夹</p><p><img src="https://kernelsu.com/wp-content/uploads/2024/05/a87ff679a2f3e71.jpg" alt="System分区读写（不依赖任何模块）插图1" title="System分区读写（不依赖任何模块）插图1"><br>5、打开<code>system</code>目录，创建<code>upperdir</code>与<code>workdir</code>两个文件夹。创建完毕 重启手机。</p><p><img src="https://kernelsu.com/wp-content/uploads/2024/05/e4da3b7fbbce234.jpg" alt="System分区读写（不依赖任何模块）插图2" title="System分区读写（不依赖任何模块）插图2"><br>6、测试分区读写，System分区读写成功</p><p><img src="https://kernelsu.com/wp-content/uploads/2024/05/85cc80d763e8f0f.jpg" alt="System分区读写（不依赖任何模块）插图3" title="System分区读写（不依赖任何模块）插图3"></p><hr><p>此方案不会直接修改system分区的文件，而是通过OverlayFS的方式修改。<br>如果改坏了或者想还原，直接删除<code>.rw</code> 文件夹再重启手机即可恢复。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Root </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
             <tag> adb </tag>
             
-            <tag> Apatch </tag>
-            
             <tag> 刷机 </tag>
-            
-            <tag> root </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Apatch、KernelSU、面具互转</title>
-      <link href="/2024/05/12/Magisk&amp;Apatch&amp;KSU%E4%BA%92%E8%BD%AC/"/>
-      <url>/2024/05/12/Magisk&amp;Apatch&amp;KSU%E4%BA%92%E8%BD%AC/</url>
-      
-        <content type="html"><![CDATA[<h1 id="一、Apatch转Magisk"><a href="#一、Apatch转Magisk" class="headerlink" title="一、Apatch转Magisk"></a>一、Apatch转Magisk</h1><ul><li>提取官方的(init_)boot.img</li><li>使用面具修补(init_)boot.img</li><li>下载kernelflasher刷官方的(init_)boot.img，再刷修补后的(init_)boot.img</li><li>重启</li></ul><h1 id="二、Magisk转Apatch"><a href="#二、Magisk转Apatch" class="headerlink" title="二、Magisk转Apatch"></a>二、Magisk转Apatch</h1><p>1、 卸载Magisk模块，从官方包提取官方的boot和init_boot<br>2、手机打开 <strong>APatch</strong>，①：选择并修补一个文件 ②：选择 <strong>boot</strong>.img – ③：输入超级密钥，开始修补 – ④：修补完成（修补生成 <strong>apatch_patched-xxx.img</strong> 文件在 <strong>Download</strong> 目录）<br>#提示 <code>注意保存超级密钥</code></p><p><img src="https://cdn.apatch.app/wp-content/uploads/2024/04/8a8bb7cd343aa2a.jpg" alt="APatch安装教程插图" title="APatch安装教程插图"></p><p>3、手机打开 文件传输模式，打开 <strong>Download</strong> 目录，把 <strong>apatch.img</strong> 复制到电脑 <strong>adb-fastboot</strong> 目录</p><p><img src="https://cdn.apatch.app/wp-content/uploads/2024/04/693a9fdd4c2fd07.png" alt="APatch安装教程插图1" title="APatch安装教程插图1"></p><p>4、Magisk–&gt;卸载–&gt;完全卸载，然后会自动重启<br>5、打开“<strong>打开CMD命令行.bat</strong>”，输入下面的命令<br>#补充 apatch.img 每次修补的名字都不一样，使用的时候请更改为boot.img，避免bug.。<br>#补充 注意刷入的boot分区,<code>a</code>或<code>b</code>,电脑ADB刷入不需要在意分区问题，会自动匹配当前分区。</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">临时启动：fastboot boot 修补文件名 #测试img是否可用，手机正常重启，说明boot可安全刷入</span><br><span class="line"></span><br><span class="line">单设备：fastboot flash boot 修补文件名</span><br><span class="line">多设备：fastboot -s 设备码  flash boot 修补文件名</span><br><span class="line"></span><br><span class="line">fastboot flash boot_ab 修补文件名</span><br></pre></td></tr></table></figure><p>#补充 注意使用adb时，单设备和多设备命令不一样。[[..&#x2F;..&#x2F;adb超级教程#为命令指定目标设备|详情参考]]</p><p>6、输出下面这三行代码，就是成功刷入了。再使用指令 <code>fastboot reboot</code> 重启手机。</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Sending &#x27;boot_b&#x27; (196608 KB) OKAY [ 4.697s]</span><br><span class="line">Writing &#x27;boot_b&#x27;             OKAY [ 0.512s]</span><br><span class="line">Finished. Total time: 5.235s</span><br></pre></td></tr></table></figure><p><img src="https://cdn.apatch.app/wp-content/uploads/2024/04/9d607a663f3e9b0.png" alt="APatch安装教程插图3" title="APatch安装教程插图3"></p><p>7、手机开机 打开 <strong>APatch</strong> ，①：输入 超级密钥 – ②：安装 系统补丁 – ③：生效中😀 成功刷入</p><p><img src="https://cdn.apatch.app/wp-content/uploads/2024/04/894f782a148b33a.jpg" alt="APatch安装教程插图4" title="APatch安装教程插图4"></p><hr><p>#提示 :<br>    如果刷入 <strong>apatch.img</strong> 不能开机，可以把前面提取的 <strong>boot.img</strong> 通过 <strong>fastboot</strong> 刷回去，恢复原 <strong>boot</strong>，一般都能正常开机！<br>    <strong>boot.img</strong> 保留一份在电脑，避免出问题了可以自救下！</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">临时启动：fastboot boot boot.img #测试img是否可用，手机正常重启，说明boot可安全刷入</span><br><span class="line"></span><br><span class="line">单设备：fastboot flash boot boot.img</span><br><span class="line">多设备：fastboot -s 设备码  flash boot boot.img</span><br><span class="line"></span><br><span class="line">fastboot flash boot_ab 修补文件名</span><br></pre></td></tr></table></figure><p>#补充 注意刷入的boot分区,<code>a</code>或<code>b</code>,电脑ADB刷入不需要在意分区问题，会自动匹配对应分区。<br>#补充 注意使用adb时，单设备和多设备命令不一样。[[..&#x2F;..&#x2F;adb超级教程#为命令指定目标设备|详情参考]]</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 安卓 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> adb </tag>
-            
-            <tag> Apatch </tag>
-            
-            <tag> 刷机 </tag>
-            
-            <tag> KernelSU </tag>
-            
-            <tag> Magisk </tag>
             
         </tags>
       
@@ -239,15 +175,79 @@
       
         <tags>
             
+            <tag> boot </tag>
+            
+            <tag> Apatch </tag>
+            
+            <tag> Magisk </tag>
+            
+            <tag> KernelSU </tag>
+            
+            <tag> root </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Apatch</title>
+      <link href="/2024/05/12/Apatch/"/>
+      <url>/2024/05/12/Apatch/</url>
+      
+        <content type="html"><![CDATA[<p>[toc]</p><h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><ul><li><p>什么是Apatch<br>  Apatch是内核级的root方案，相较于传统的Magisk，具有更强的隐蔽性。<br>  支持修补boot.img获取root权限。这意味着Apatch可以更为简单地获取root权限，同时修补boot.img的方式意味着可以使用第三方内核，比如潘多拉内核等。</p></li><li><p>本教程适合哪些人<br>  未root而想root的用户、已通过Magisk获取root权限而想转至Apatch的用户、已通过刷入通用内 核获取root权限而想转至修补boot.img模式的KSU用户。</p></li><li><p>Apatch原理</p><ul><li>Apatch替换官方boot.img中GKI内核的kernel文件,然后再打包刷入boot分区</li></ul><p>  #补充 Apatch目前支持一些内核版本4.x的内核，但需要你去确认。</p></li></ul><p>&#96;&#96;所有手机的kernel文件一直在boot分区，所以apatch一直修补boot.img镜像。</p><p>#注意 &#x3D;&#x3D;Apatch 支持内核版本5.x以上的手机,4.x仅支持一部分，刷入前提前确认&#x3D;&#x3D;<br>#补充 如果你的设备已root，请通过下载系统包的方式提取内核而不是直接从设备提取，因为<code>已root设备的内核已被修改。</code></p><p><code>刷机千万条，数据第一条。在刷机之前强烈建议你进行数据备份，防止手机变砖后数据丢失！！！</code></p><p><code>提前开启USB调试模式 </code>备份官方包的boot.mg   init_boot.img文件<br>&#96;&#96;备好线刷包，变砖直接线刷</p><h1 id="一、Apatch刷入"><a href="#一、Apatch刷入" class="headerlink" title="一、Apatch刷入"></a>一、Apatch刷入</h1><h2 id="1-fastboot刷入"><a href="#1-fastboot刷入" class="headerlink" title="1. fastboot刷入"></a>1. fastboot刷入</h2><p>1、小米解锁 <strong>Bootloader</strong>：<a href="https://magiskcn.com/xiaomi-unlock">Xiaomi-unlock</a></p><p>2、下载系统包：<a href="https://magiskcn.com/rom">ROM下载 - Magisk中文网 (magiskcn.com)</a>（一定要下载和手机系统版本一致的系统包）</p><p>3、提取 <strong>boot.img</strong> ：<a href="https://magiskcn.com/payload-dumper-go-boot">payload-dumper-go-boot</a>（如果系统包有 <strong>boot.img</strong>，可以跳过此步骤）<br>#补充<a href="https://dumper.pedroz.eu.org/">在线提取boot、init_boot镜像</a><br>#补充    <code>线刷包：解压后，在images文件夹找到boot.img</code><br>        <code>卡刷包：解压后，找到payload.bin，通过上述工具或MT管理器获取boot.img</code></p><p>4、手机插电脑，文件传输模式，复制 <strong>boot.img</strong> 到手机 <strong>Download</strong> 目录</p><p>5、手机下载 <strong>APatch</strong> APP 安装：<a href="https://apatch.app/apatch-download">APatch-download</a></p><ul><li><ul><li>有root权限，可kernel SU直接刷入原厂(init_)boot镜像,app选择修补并安装，重启结束。</li></ul></li></ul><p>6、手机打开 <strong>APatch</strong>，①：选择并修补一个文件 ②：选择 <strong>boot</strong>.img – ③：输入超级密钥，开始修补 – ④：修补完成（修补生成 <strong>apatch_patched-xxx.img</strong> 文件在 <strong>Download</strong> 目录）<br>#提示 <code>注意保存超级密钥</code>(字母+数字的组合方式)</p><p><img src="https://cdn.apatch.app/wp-content/uploads/2024/04/8a8bb7cd343aa2a.jpg" alt="APatch安装教程插图" title="APatch安装教程插图"></p><p>7、电脑下载 <strong>adb-fastboot</strong>：<a href="https://mrzzoxo.lanzoui.com/b02plghuh">蓝奏盘</a>（解压出来）</p><p>8、手机打开 文件传输模式，打开 <strong>Download</strong> 目录，把 <strong>apatch.img</strong> 复制到电脑 <strong>adb-fastboot</strong> 目录</p><p><img src="https://cdn.apatch.app/wp-content/uploads/2024/04/693a9fdd4c2fd07.png" alt="APatch安装教程插图1" title="APatch安装教程插图1"></p><p>9、手机进入 <strong>Bootloader</strong> 模式，再插入电脑。<br>（手机关机，电源键+音量下键，两个键长按）</p><p>#注意 &#96;&#96;如果你已获取过root权限或修改过内核，请执行以下操作，否则跳过以下操作。<br>    因为设备的内核已被修改，因此在继续操作之前，需要刷回原厂boot。系统包解包后将boot.img移至和adb工具同一个文件夹（注意是boot.img，即使是init_boot分区的手机也是boot.img）。</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">临时启动：fastboot boot boot.img  #测试img是否可用，手机正常重启，说明boot可安全刷入</span><br><span class="line"></span><br><span class="line">单设备：fastboot flash boot boot.img</span><br><span class="line">多设备：fastboot -s 设备码  flash boot boot.img</span><br></pre></td></tr></table></figure><p>10、打开“<strong>打开CMD命令行.bat</strong>”，输入下面的命令&#x3D;&#x3D;(注意需要adb、fastboot工具)&#x3D;&#x3D;<br>#补充 apatch.img 每次修补的名字都不一样，&#x3D;&#x3D;使用的时候请更改为(init_)boot.img，避免bug.&#x3D;&#x3D;<br>#补充 注意刷入的boot分区,<code>a</code>或<code>b</code>,电脑ADB刷入不需要在意分区问题，会自动匹配当前分区。</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">临时启动：fastboot boot 修补文件名 #测试img是否可用，手机正常重启，说明boot可安全刷入</span><br><span class="line"></span><br><span class="line">单设备：fastboot flash boot 修补文件名</span><br><span class="line">多设备：fastboot -s 设备码  flash boot 修补文件名</span><br><span class="line"></span><br><span class="line">fastboot flash boot_ab 修补文件名</span><br></pre></td></tr></table></figure><p>#补充 注意使用adb时，单设备和多设备命令不一样。[[..&#x2F;..&#x2F;adb超级教程#为命令指定目标设备|详情参考]]</p><p>11、输出下面这三行代码，就是成功刷入了。再使用指令 <code>fastboot reboot</code> 重启手机。</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Sending &#x27;boot_b&#x27; (196608 KB) OKAY [ 4.697s]</span><br><span class="line">Writing &#x27;boot_b&#x27;             OKAY [ 0.512s]</span><br><span class="line">Finished. Total time: 5.235s</span><br></pre></td></tr></table></figure><p><img src="https://cdn.apatch.app/wp-content/uploads/2024/04/9d607a663f3e9b0.png" alt="APatch安装教程插图3" title="APatch安装教程插图3"></p><p>12、手机开机 打开 <strong>APatch</strong> ，①：输入 超级密钥 – ②：安装 系统补丁 – ③：生效中😀 成功刷入</p><p><img src="https://cdn.apatch.app/wp-content/uploads/2024/04/894f782a148b33a.jpg" alt="APatch安装教程插图4" title="APatch安装教程插图4"></p><hr><p>#提示 :<br>    如果刷入 <strong>apatch.img</strong> 不能开机，可以把前面提取的 <strong>boot.img</strong> 通过 <strong>fastboot</strong> 刷回去，恢复原 <strong>boot</strong>，一般都能正常开机！<br>    <strong>boot.img</strong> 保留一份在电脑，避免出问题了可以自救下！</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">临时启动：fastboot boot boot.img #测试img是否可用，手机正常重启，说明boot可安全刷入</span><br><span class="line"></span><br><span class="line">单设备：fastboot flash boot boot.img</span><br><span class="line">多设备：fastboot -s 设备码  flash boot boot.img</span><br><span class="line"></span><br><span class="line">fastboot flash boot_ab 修补文件名</span><br></pre></td></tr></table></figure><p>#补充 注意刷入的boot分区,<code>a</code>或<code>b</code>,电脑ADB刷入不需要在意分区问题，会自动匹配对应分区。<br>#补充 注意使用adb时，单设备和多设备命令不一样。[[..&#x2F;..&#x2F;adb超级教程#为命令指定目标设备|详情参考]]</p><h2 id="2-rec刷入"><a href="#2-rec刷入" class="headerlink" title="2. rec刷入"></a>2. rec刷入</h2><p>1、小米解锁 <strong>Bootloader</strong>：<a href="https://magiskcn.com/xiaomi-unlock">Xiaomi-unlock</a></p><p>2、下载机子本身版本的线刷包（卡刷包），去小米官方论坛下载就行。小米官方地址：<a href="https://magiskcn.com/rom">ROM下载 - Magisk中文网 (magiskcn.com)</a></p><p>3、解压线刷包，找到boot.img，拷贝到手机。<br>#注意   <code>官方boot.img保存好，后续救砖和apatch升级会用到。</code><br>#补充    <code>线刷包：解压后，在images文件夹找到boot.img</code><br>        <code>卡刷包：解压后，找到payload.bin，通过上述工具或MT管理器获取boot.img</code></p><p>4、手机安装Apatch软件，下载地址：<a href="https://github.com/bmax121/APatch/" title="https://github.com/bmax121/APatch/">查看链接</a>。  </p><p>5、手机打开 <strong>APatch</strong>，①：选择并修补一个文件 ②：选择 <strong>boot</strong>.img – ③：输入超级密钥，开始修补 – ④：修补完成（修补生成 <strong>apatch_patched-xxx.img</strong> 文件在 <strong>Download</strong> 目录）  、<br>#提示 <code>注意保存超级密钥</code><br><img src="https://cdn.apatch.app/wp-content/uploads/2024/04/8a8bb7cd343aa2a.jpg" alt="APatch安装教程插图" title="APatch安装教程插图"></p><p>6、刷入第三方TWRP。TWRP下载地址：<a href="https://www.123pan.com/s/oyZzVv-Dxzjh.html" title="https://www.123pan.com/s/oyZzVv-Dxzjh.html">查看链接</a>，把手机关机，长按开机键和音量减键，进入FASTBOOT模式，通过一键刷入工具一键刷入即可。如果不会操作可以看这位大佬写的教程。<a href="https://www.coolapk.com/feed/45561323?shareKey=YWNkZjEwYTYxYzg0NjVmYjlkY2U~&shareUid=2374840&shareFrom=com.coolapk.market_14.0.3" title="https://www.coolapk.com/feed/45561323?shareKey=YWNkZjEwYTYxYzg0NjVmYjlkY2U~&amp;shareUid=2374840&amp;shareFrom=com.coolapk.market_14.0.3">查看链接</a>  </p><p>7、使用recovery刷入修补后的boot.img文件到boot分区。<br>#补充 注意刷入的boot分区,<code>a</code>或<code>b</code><br>#补充 <code>apatch修补后的boot文件,最好改成boot.img，避免奇怪bug</code></p><h2 id="8、手机开机-打开-APatch-，①：输入-超级密钥-–-②：安装-系统补丁-–-③：生效中😀-成功刷入"><a href="#8、手机开机-打开-APatch-，①：输入-超级密钥-–-②：安装-系统补丁-–-③：生效中😀-成功刷入" class="headerlink" title="8、手机开机 打开 APatch ，①：输入 超级密钥 – ②：安装 系统补丁 – ③：生效中😀 成功刷入***"></a>8、手机开机 打开 <strong>APatch</strong> ，①：输入 超级密钥 – ②：安装 系统补丁 – ③：生效中😀 成功刷入<br><img src="https://cdn.apatch.app/wp-content/uploads/2024/04/894f782a148b33a.jpg" alt="APatch安装教程插图4" title="APatch安装教程插图4"><br>***</h2><p>#提示 :<br>    如果刷入 <strong>apatch.img</strong> 不能开机，可以把前面提取的 <strong>boot.img</strong> 通过 <strong>fastboot</strong> 或REC刷回去，恢复原 <strong>boot</strong>，一般都能正常开机！<br>    <strong>boot.img</strong> 保留一份在电脑，避免出问题了可以自救下！</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">单设备：fastboot flash boot boot.img</span><br><span class="line">多设备：fastboot -s 设备码  flash boot boot.img</span><br><span class="line"></span><br><span class="line">fastboot flash boot_ab 修补文件名</span><br></pre></td></tr></table></figure><p>#补充 REC注意刷入的boot分区,<code>a</code>或<code>b</code>,电脑ADB刷入不需要在意分区问题，会自动匹配对应分区。<br>#补充 注意使用adb时，单设备和多设备命令不一样。[[..&#x2F;..&#x2F;adb超级教程#为命令指定目标设备|详情参考]]</p><h1 id="二、保ROOT升级"><a href="#二、保ROOT升级" class="headerlink" title="二、保ROOT升级"></a>二、保ROOT升级</h1><p>1、下载要升级版本的全量包<br>    可通过系统升级界面下载，然后暂停，后续通过下载助手继续下载。<br>#补充 &#x3D;&#x3D;注意下载完成后的刷机包，复制一份，避免升级失败，还得重新下载。&#x3D;&#x3D;</p><p>2、解压刷机包，找到boot.img，拷贝到手机。<br>#注意   <code>官方boot.img保存好，后续救砖和apatch升级会用到。</code><br>#补充    <code>线刷包：解压后，在images文件夹找到boot.img</code><br>        <code>卡刷包：解压后，找到payload.bin，通过上述工具或MT管理器获取boot.img</code></p><p>3、手机打开 <strong>APatch</strong>，①：选择并修补一个文件 ②：选择 <strong>boot</strong>.img – ③：输入超级密钥，开始修补 – ④：修补完成（修补生成 <strong>apatch_patched-xxx.img</strong> 文件在 <strong>Download</strong> 目录）<br>#注意 <code>修补后的boot.img保存好，后续救砖和apatch升级也会用到。</code></p><p><img src="https://cdn.apatch.app/wp-content/uploads/2024/04/8a8bb7cd343aa2a.jpg" alt="APatch安装教程插图" title="APatch安装教程插图"></p><p>4、系统升级界面导入本地安装包，等待验证，结束后暂不要重启、<br>5、手机打开 <strong>APatch</strong>，①直接安装到未使用的槽位<br>#补充 潘多拉内核系统OTA，可能回提示not patch，还原内核（新系统boot），再直接安装，系统重启进入后，再刷潘多拉。</p><p>6、重启，手机开机 打开 <strong>APatch</strong> ，①：输入 超级密钥 – ②：生效中😀 成功刷入<br><img src="https://cdn.apatch.app/wp-content/uploads/2024/04/8a8bb7cd343aa2a.jpg" alt="APatch安装教程插图" title="APatch安装教程插图"></p><p>#补充 root掉了的话，第3步保存的修补后的boot文件，可直接刷入。</p><h1 id="三、第三方内核"><a href="#三、第三方内核" class="headerlink" title="三、第三方内核"></a>三、第三方内核</h1><pre><code>第三方内核通过修改(init_)boot镜像中的kernel文件，而apatch和kernelsu(gki)也是修改kernel文件，会导致第三方内核刷入后，丢失root。magisk、kernelsu(lkm)通过修补(init_)boot镜像中的ramdisk文件，实现root获取，刷入第三方内核，从而不会丢失root。</code></pre><h2 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h2><ul><li>1、使用Horizon Kernel flasher或者Kernel flasher 将需要的内核刷入系统，此时不重启系统，然后使用Scene或者搞机助手或者其他玩机软件等，提取此时的BOOT文件。</li></ul><p>#注意 内核包是通过AK3压缩包刷入的<br><img src="https://cf.dreamf.fun/image/202405122221023.png" alt="image.png"></p><ul><li><p>2、使用Apatch修补提取出来的这个boot文件。在download文件得到Apatch开头的已修补的boot文件。  </p></li><li><p>3、此时重启手机，进入recovery，然后刷入这个已修补的boot镜像文件。  </p></li><li><p>4、开机，享用第三方内核+Apatch即可。</p></li></ul><p>#注意 此方法通用，但某些内核可以不行，如果无法开机，请准备好线刷包救砖。小白慎试，小白慎试，小白慎试！</p><h2 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h2><p>1、小米解锁 <strong>Bootloader</strong>：<a href="https://magiskcn.com/xiaomi-unlock">Xiaomi-unlock</a><br>2、下载系统包：<a href="https://magiskcn.com/rom">ROM下载 - Magisk中文网 (magiskcn.com)</a>（一定要下载和手机系统版本一致的系统包）<br>3、提取 <strong>boot.img</strong> ：<a href="https://magiskcn.com/payload-dumper-go-boot">payload-dumper-go-boot</a>（如果系统包有 <strong>boot.img</strong>，可以跳过此步骤）<br>#补充<a href="https://dumper.pedroz.eu.org/">在线提取boot、init_boot镜像</a><br>#补充    <code>线刷包：解压后，在images文件夹找到boot.img</code><br>        <code>卡刷包：解压后，找到payload.bin，通过上述工具或MT管理器获取boot.img</code></p><p>4、安装<a href="https://install.appcenter.ms/users/vvb2060/apps/magisk/distribution_groups/public">magisk-alpha</a><br>5、手机打开 <strong>Magisk</strong>，①：选择并修补一个文件 ②：选择 <strong>boot</strong>.img – ③：输入超级密钥，开始修补 – ④：修补完成（修补生成 <strong>magisk_patched-xxx.img</strong> 文件在 <strong>Download</strong> 目录）<br>#注意 <code>修补后的(init_)boot.img保存好，后续救砖和magisk升级也会用到。</code><br>6、通过kernelflash 、scene、爱玩机刷入修补后的(init_)boot.img，重启，alpha获取到root权限</p><p>7.使用Horizon Kernel flasher或者Kernel flasher 将需要的内核刷入系统，重启，然后使用Scene或者搞机助手或者其他玩机软件等，提取此时的BOOT文件。  </p><p>#注意 内核包是通过AK3压缩包刷入的<br><img src="https://cf.dreamf.fun/image/202405122221023.png" alt="image.png"></p><p>8、使用Apatch修补提取出来的这个boot文件。在download文件得到Apatch开头的已修补的boot文件。<br>9、  通过kernelflash 、scene、爱玩机刷入修补后的(init_)boot.img，重启</p><p>10、重启，手机开机 打开 <strong>APatch</strong> ，①：输入 超级密钥 – ②：生效中😀 成功刷入<br>#补充 MT管理器删除data&#x2F;adb&#x2F;目录下的文件，防止检测到magisk残留。<br><img src="https://cdn.apatch.app/wp-content/uploads/2024/04/8a8bb7cd343aa2a.jpg" alt="APatch安装教程插图" title="APatch安装教程插图"></p><h1 id="四、System分区读写（不依赖任何模块）"><a href="#四、System分区读写（不依赖任何模块）" class="headerlink" title="四、System分区读写（不依赖任何模块）"></a>四、System分区读写（不依赖任何模块）</h1><p>前提条件：至少刷入一个模块，且 <code>/data/adb/ap/modules.img</code> 文件存在</p><hr><p>1、已刷入 APatch</p><p>2、手机下载安装：<a href="https://mt2.cn/download/">MT管理器</a> ，并授权 ROOT 权限</p><p>3、打开目录<code>/data/adb/modules</code>创建 <code>.rw</code> 文件夹（前面有个点 . ）</p><p><img src="https://kernelsu.com/wp-content/uploads/2024/05/eccbc87e4b5ce2f.jpg" alt="System分区读写（不依赖任何模块）插图" title="System分区读写（不依赖任何模块）插图"><br>4、打开<code>.rw</code>目录，创建 <code>system</code>文件夹</p><p><img src="https://kernelsu.com/wp-content/uploads/2024/05/a87ff679a2f3e71.jpg" alt="System分区读写（不依赖任何模块）插图1" title="System分区读写（不依赖任何模块）插图1"><br>5、打开<code>system</code>目录，创建<code>upperdir</code>与<code>workdir</code>两个文件夹。创建完毕 重启手机。</p><p><img src="https://kernelsu.com/wp-content/uploads/2024/05/e4da3b7fbbce234.jpg" alt="System分区读写（不依赖任何模块）插图2" title="System分区读写（不依赖任何模块）插图2"><br>6、测试分区读写，System分区读写成功</p><p><img src="https://kernelsu.com/wp-content/uploads/2024/05/85cc80d763e8f0f.jpg" alt="System分区读写（不依赖任何模块）插图3" title="System分区读写（不依赖任何模块）插图3"></p><hr><p>此方案不会直接修改system分区的文件，而是通过OverlayFS的方式修改。<br>如果改坏了或者想还原，直接删除<code>.rw</code> 文件夹再重启手机即可恢复。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Root </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
             <tag> Apatch </tag>
             
             <tag> root </tag>
             
-            <tag> KernelSU </tag>
+            <tag> adb </tag>
+            
+            <tag> 刷机 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Apatch、KernelSU、面具互转</title>
+      <link href="/2024/05/12/Magisk&amp;Apatch&amp;KSU%E4%BA%92%E8%BD%AC/"/>
+      <url>/2024/05/12/Magisk&amp;Apatch&amp;KSU%E4%BA%92%E8%BD%AC/</url>
+      
+        <content type="html"><![CDATA[<h1 id="一、Apatch转Magisk"><a href="#一、Apatch转Magisk" class="headerlink" title="一、Apatch转Magisk"></a>一、Apatch转Magisk</h1><ul><li>提取官方的(init_)boot.img</li><li>使用面具修补(init_)boot.img</li><li>下载kernelflasher刷官方的(init_)boot.img，再刷修补后的(init_)boot.img</li><li>重启</li></ul><h1 id="二、Magisk转Apatch"><a href="#二、Magisk转Apatch" class="headerlink" title="二、Magisk转Apatch"></a>二、Magisk转Apatch</h1><p>1、 卸载Magisk模块，从官方包提取官方的boot和init_boot<br>2、手机打开 <strong>APatch</strong>，①：选择并修补一个文件 ②：选择 <strong>boot</strong>.img – ③：输入超级密钥，开始修补 – ④：修补完成（修补生成 <strong>apatch_patched-xxx.img</strong> 文件在 <strong>Download</strong> 目录）<br>#提示 <code>注意保存超级密钥</code></p><p><img src="https://cdn.apatch.app/wp-content/uploads/2024/04/8a8bb7cd343aa2a.jpg" alt="APatch安装教程插图" title="APatch安装教程插图"></p><p>3、手机打开 文件传输模式，打开 <strong>Download</strong> 目录，把 <strong>apatch.img</strong> 复制到电脑 <strong>adb-fastboot</strong> 目录</p><p><img src="https://cdn.apatch.app/wp-content/uploads/2024/04/693a9fdd4c2fd07.png" alt="APatch安装教程插图1" title="APatch安装教程插图1"></p><p>4、Magisk–&gt;卸载–&gt;完全卸载，然后会自动重启<br>5、打开“<strong>打开CMD命令行.bat</strong>”，输入下面的命令<br>#补充 apatch.img 每次修补的名字都不一样，使用的时候请更改为boot.img，避免bug.。<br>#补充 注意刷入的boot分区,<code>a</code>或<code>b</code>,电脑ADB刷入不需要在意分区问题，会自动匹配当前分区。</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">临时启动：fastboot boot 修补文件名 #测试img是否可用，手机正常重启，说明boot可安全刷入</span><br><span class="line"></span><br><span class="line">单设备：fastboot flash boot 修补文件名</span><br><span class="line">多设备：fastboot -s 设备码  flash boot 修补文件名</span><br><span class="line"></span><br><span class="line">fastboot flash boot_ab 修补文件名</span><br></pre></td></tr></table></figure><p>#补充 注意使用adb时，单设备和多设备命令不一样。[[..&#x2F;..&#x2F;adb超级教程#为命令指定目标设备|详情参考]]</p><p>6、输出下面这三行代码，就是成功刷入了。再使用指令 <code>fastboot reboot</code> 重启手机。</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Sending &#x27;boot_b&#x27; (196608 KB) OKAY [ 4.697s]</span><br><span class="line">Writing &#x27;boot_b&#x27;             OKAY [ 0.512s]</span><br><span class="line">Finished. Total time: 5.235s</span><br></pre></td></tr></table></figure><p><img src="https://cdn.apatch.app/wp-content/uploads/2024/04/9d607a663f3e9b0.png" alt="APatch安装教程插图3" title="APatch安装教程插图3"></p><p>7、手机开机 打开 <strong>APatch</strong> ，①：输入 超级密钥 – ②：安装 系统补丁 – ③：生效中😀 成功刷入</p><p><img src="https://cdn.apatch.app/wp-content/uploads/2024/04/894f782a148b33a.jpg" alt="APatch安装教程插图4" title="APatch安装教程插图4"></p><hr><p>#提示 :<br>    如果刷入 <strong>apatch.img</strong> 不能开机，可以把前面提取的 <strong>boot.img</strong> 通过 <strong>fastboot</strong> 刷回去，恢复原 <strong>boot</strong>，一般都能正常开机！<br>    <strong>boot.img</strong> 保留一份在电脑，避免出问题了可以自救下！</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">临时启动：fastboot boot boot.img #测试img是否可用，手机正常重启，说明boot可安全刷入</span><br><span class="line"></span><br><span class="line">单设备：fastboot flash boot boot.img</span><br><span class="line">多设备：fastboot -s 设备码  flash boot boot.img</span><br><span class="line"></span><br><span class="line">fastboot flash boot_ab 修补文件名</span><br></pre></td></tr></table></figure><p>#补充 注意刷入的boot分区,<code>a</code>或<code>b</code>,电脑ADB刷入不需要在意分区问题，会自动匹配对应分区。<br>#补充 注意使用adb时，单设备和多设备命令不一样。[[..&#x2F;..&#x2F;adb超级教程#为命令指定目标设备|详情参考]]</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 安卓 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Apatch </tag>
             
             <tag> Magisk </tag>
             
-            <tag> boot </tag>
+            <tag> KernelSU </tag>
+            
+            <tag> adb </tag>
+            
+            <tag> 刷机 </tag>
             
         </tags>
       
@@ -272,13 +272,13 @@
       
         <tags>
             
-            <tag> adb </tag>
-            
-            <tag> 刷机 </tag>
+            <tag> Magisk </tag>
             
             <tag> root </tag>
             
-            <tag> Magisk </tag>
+            <tag> adb </tag>
+            
+            <tag> 刷机 </tag>
             
         </tags>
       
@@ -303,9 +303,9 @@
       
         <tags>
             
-            <tag> root </tag>
-            
             <tag> Magisk </tag>
+            
+            <tag> root </tag>
             
             <tag> Reccovery </tag>
             
@@ -359,9 +359,9 @@
       
         <tags>
             
-            <tag> Picgo </tag>
-            
             <tag> github </tag>
+            
+            <tag> Picgo </tag>
             
             <tag> Obsidian </tag>
             
@@ -390,15 +390,44 @@
       
         <tags>
             
-            <tag> Picgo </tag>
-            
             <tag> github </tag>
+            
+            <tag> Picgo </tag>
             
             <tag> cloudflare </tag>
             
             <tag> 阿里云 </tag>
             
             <tag> 插件 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>hosts配置丢失</title>
+      <link href="/2024/05/05/hosts%E9%85%8D%E7%BD%AE%E4%B8%A2%E5%A4%B1/"/>
+      <url>/2024/05/05/hosts%E9%85%8D%E7%BD%AE%E4%B8%A2%E5%A4%B1/</url>
+      
+        <content type="html"><![CDATA[<ol><li>win+s 打开搜索框，命令提示符使用管理员身份运行</li><li>复制下面这条命令,一行<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">for /f %P in (&#x27;dir %windir%\WinSxS\hosts /b /s&#x27;) do copy %P %windir%\System32\drivers\etc &amp; echo %P &amp; [Notepad++] %P</span><br></pre></td></tr></table></figure></li><li>如果hosts文件丢失，将会创建，否则将覆盖，输入【a】，然后按下回车键</li></ol><p>#补充 hosts文件目录：C:\Windows\System32\drivers\etc】</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Windows </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+            <tag> hosts </tag>
+            
+            <tag> CMD </tag>
             
         </tags>
       
@@ -423,11 +452,11 @@
       
         <tags>
             
+            <tag> CMD </tag>
+            
             <tag> 网络 </tag>
             
             <tag> 域名 </tag>
-            
-            <tag> CMD </tag>
             
         </tags>
       
