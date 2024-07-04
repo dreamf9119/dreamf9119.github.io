@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>端口占用</title>
+      <link href="/2024/07/04/%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8/"/>
+      <url>/2024/07/04/%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<h1 id="一、Windows"><a href="#一、Windows" class="headerlink" title="一、Windows"></a>一、Windows</h1><h2 id="1-1-端口占用的IP"><a href="#1-1-端口占用的IP" class="headerlink" title="1.1 端口占用的IP"></a>1.1 端口占用的IP</h2><ul><li>全部端口占用查询<ul><li><code>netstat -aon</code><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">C:\Users\jiuji&gt;netstat -aon</span><br><span class="line">活动连接</span><br><span class="line">  协议  本地地址          外部地址        状态           PID</span><br><span class="line">  TCP    0.0.0.0:135      0.0.0.0:0     LISTENING      1772</span><br><span class="line">  TCP    0.0.0.0:445      0.0.0.0:0     LISTENING      4</span><br><span class="line">  TCP    0.0.0.0:902      0.0.0.0:0     LISTENING      5160</span><br><span class="line">  TCP    0.0.0.0:912      0.0.0.0:0     LISTENING      5160</span><br><span class="line">  TCP    0.0.0.0:1028     0.0.0.0:0     LISTENING      1332</span><br><span class="line">  ...</span><br><span class="line">  ...</span><br></pre></td></tr></table></figure></li></ul></li><li>特定端口占用查询<ul><li><code>netstat -aon | findstr &quot;端口号&quot;</code><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">C:\Users\jiuji&gt;netstat -aon | findstr &quot;1772&quot;</span><br><span class="line">  TCP    0.0.0.0:135            0.0.0.0:0        LISTENING       1772</span><br><span class="line">  TCP    [::]:135               [::]:0           LISTENING       1772</span><br></pre></td></tr></table></figure></li></ul></li></ul><h2 id="2-2-端口占用的进程及程序名"><a href="#2-2-端口占用的进程及程序名" class="headerlink" title="2.2 端口占用的进程及程序名"></a>2.2 端口占用的进程及程序名</h2><ul><li>特定端口占用查询<ul><li><code>tasklist | findstr &quot;端口号&quot;</code><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">C:\Users\jiuji&gt;tasklist | findstr &quot;1772&quot;</span><br><span class="line">svchost.exe                   1772 Services         0     16,724 K</span><br></pre></td></tr></table></figure></li></ul></li></ul><h1 id="二、Linux"><a href="#二、Linux" class="headerlink" title="二、Linux"></a>二、Linux</h1><ul><li><code>lsof -i:端口号</code><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">lsof -i:8000</span></span><br><span class="line">COMMAND   PID USER   FD   TYPE  DEVICE SIZE/OFF NODE NAME</span><br><span class="line">lwfs    22065 root    6u  IPv4 4395053      0t0  TCP *:irdmi (LISTEN)</span><br></pre></td></tr></table></figure></li><li><code>netstat -tunlp |grep 端口号</code><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tcp   0  0 0.0.0.0:8000      0.0.0.0:*           LISTEN      22065/lwfs</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Windows </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+            <tag> 端口 </tag>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>payload提取boot</title>
       <link href="/2024/06/22/payload%E6%8F%90%E5%8F%96boot.img/"/>
       <url>/2024/06/22/payload%E6%8F%90%E5%8F%96boot.img/</url>
