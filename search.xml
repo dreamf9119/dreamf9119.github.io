@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>windows媒体感知</title>
+      <link href="/2024/07/08/windows%E5%AA%92%E4%BD%93%E6%84%9F%E7%9F%A5/"/>
+      <url>/2024/07/08/windows%E5%AA%92%E4%BD%93%E6%84%9F%E7%9F%A5/</url>
+      
+        <content type="html"><![CDATA[<h1 id="windows媒体感知"><a href="#windows媒体感知" class="headerlink" title="windows媒体感知"></a>windows媒体感知</h1><ul><li><p>简介</p><p>在使用 TCP&#x2F;IP 的基于 Windows 的计算机上，可以使用媒体感知功能来检测网络媒体是否处于链接状态。 以太网网络适配器和集线器通常具有指示连接状态的“链接”指示灯。 此状态与 Windows 解释为链接状态的条件相同。 每当 Windows 检测到“关闭”状态时，它会从该适配器中删除绑定协议，直到再次检测到它为“up”。 有时，你可能不希望网络适配器检测到此状态。 可以通过修改注册表来设置此配置。</p></li></ul><ol><li><p>启动注册表编辑器。</p></li><li><p>找到以下注册表子项： <code>HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Tcpip\Parameters</code></p></li><li><p>将以下注册表项添加到 <strong>Parameters</strong> 子项：</p><p>名称：DisableDHCPMediaSense<br>数据类型：REG_DWORD (布尔)<br>值：1</p></li><li><p>重启计算机。</p></li></ol><p>#补充 DisableClusSvcMediaSense，当此项设置为 1 时，将禁用媒体感知。 当此项设置为0，则可以启用媒体感知</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+            <tag> 网络 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>端口占用</title>
       <link href="/2024/07/04/%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8/"/>
       <url>/2024/07/04/%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8/</url>
