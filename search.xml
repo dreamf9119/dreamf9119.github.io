@@ -4,6 +4,58 @@
   
     
     <entry>
+      <title>NTP校时</title>
+      <link href="/2024/07/18/NTP%E6%A0%A1%E6%97%B6/"/>
+      <url>/2024/07/18/NTP%E6%A0%A1%E6%97%B6/</url>
+      
+        <content type="html"><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><ul><li>Windows设置同步网络时间：  <ul><li>家用电脑或者普通办公电脑设置定时同步网络时间，校正时间。  </li><li>Windows有Internet时间同步机制，默认与time.windows.com做时间校准，默认的周期是一周一次。  </li><li>这个周期对我来说有点略长， 想改为每小时一次，并且修改时间源。</li></ul></li></ul><h1 id="一、windows"><a href="#一、windows" class="headerlink" title="一、windows"></a>一、windows</h1><h2 id="NTP服务器"><a href="#NTP服务器" class="headerlink" title="NTP服务器"></a>NTP服务器</h2><ul><li><p>关闭防火墙<br><img src="https://cf.dreamf.fun/image/202407182356954.png" alt="image.png"></p></li><li><p>在桌面上右击“计算机”，选择“管理”，选择“服务”。</p></li></ul><p><img src="https://cf.dreamf.fun/image/202407182357320.png" alt="image.png"></p><ul><li>选中“Windows Time”，设置为开启，这样就可以将“Windows Time”这一个服务打开。</li></ul><p><img src="https://cf.dreamf.fun/image/202407182357794.png" alt="image.png"></p><ul><li><code>windows + R</code>唤出<code>运行</code>，输入regedit</li></ul><p><img src="https://cf.dreamf.fun/image/202407182359341.png" alt="image.png"></p><ul><li>在注册表中依次展开：HKEY_LOCAL_MACHINE、SYSTEM、CurrentControlSet、Services、W32Time、TimeProviders、NtpServer， 在NtpServer项的右侧键值ENablied，将默认的0改为1，1为启用NTP服务器。</li></ul><p><img src="https://cf.dreamf.fun/image/202407190000512.png" alt="image.png"></p><ul><li>再在注册表中依次展开：HKEY_LOCAL_MACHINE、SYSTEM、CurrentControlSet、Services、W32Time、Config  ，找到Config项右侧的AnnounceFlags。 把默认的10改为5，5的意思就是自身为可靠的时间源</li></ul><p><img src="https://cf.dreamf.fun/image/202407190001074.png" alt="image.png"></p><ul><li>在命令提示符中输入：net stop w32Time，回车等待NTP服务停止。然后再输入：net start w32Time，回车启动NTP服务。<br><img src="https://cf.dreamf.fun/image/202407190001676.png" alt="image.png"></li></ul><h2 id="NTP客户端"><a href="#NTP客户端" class="headerlink" title="NTP客户端"></a>NTP客户端</h2><ul><li><p>控制面部—时钟和区域—设置时间和日期-Internet时间<br><img src="https://cf.dreamf.fun/image/202407190011707.png" alt="image.png"></p></li><li><p>输入NTP校时服务器的IP地址或网址<br><img src="https://cf.dreamf.fun/image/202407190015768.png" alt="image.png"></p></li><li><p>Windows Time服务，启动类型改为“自动”<br><img src="https://cf.dreamf.fun/image/202407190012820.png" alt="image.png"></p></li><li><p>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\W32Time\TimeProviders\NtpClient，双击 SpecialPollInterval 键值，将对话框中的“基数栏”选择到“十进制”上，单位：秒，填写适当的同步时间间隔。</p></li></ul><p><img src="https://cf.dreamf.fun/image/202407190017559.png" alt="image.png"></p><ul><li>检查是否设置成功：在桌面右下角打开系统时间→更改时期和时间设置→Internet 时间，点击同步。</li></ul><p><img src="https://cf.dreamf.fun/image/202407190018307.png" alt="image.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Windows </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+            <tag> NTP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Windows自动登录</title>
+      <link href="/2024/07/18/Windows%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95/"/>
+      <url>/2024/07/18/Windows%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95/</url>
+      
+        <content type="html"><![CDATA[<p>简介</p><ol><li><p>选择‘’开始“，然后选择”运行“</p></li><li><p>键入”regedit“，回车<br><img src="https://cf.dreamf.fun/image/202407190028785.png" alt="image.png"></p></li><li><p>依次展开注册表：计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon子项。<br><img src="https://cf.dreamf.fun/image/202407190036180.png" alt="image.png"></p></li><li><p>该子项下新建<code>AutoAdminLogon</code>，指向字符串值，值：1，确定</p></li><li><p>该子项下新建<code>DefaultPassword</code>，指向字符串值，键入密码，确定</p></li><li><p>如果已将计算机加入域，应添加<code>DefaultDomainName</code>,值的数据应设置为域的完全限定域名（FQDN），例如：<code>contoso.com</code></p></li><li><p>退出注册表，重启计算机，可实现自动登录。</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Windows </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>sql2000及SP4安装-win11</title>
       <link href="/2024/07/09/sql2000%E5%8F%8ASP4%E5%AE%89%E8%A3%85/"/>
       <url>/2024/07/09/sql2000%E5%8F%8ASP4%E5%AE%89%E8%A3%85/</url>
