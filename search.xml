@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>谷歌浏览器离线版下载</title>
+      <link href="/2024/08/15/%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%A6%BB%E7%BA%BF%E7%89%88%E4%B8%8B%E8%BD%BD/"/>
+      <url>/2024/08/15/%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%A6%BB%E7%BA%BF%E7%89%88%E4%B8%8B%E8%BD%BD/</url>
+      
+        <content type="html"><![CDATA[<ol><li>打开<a href="https://www.google.cn/chrome/">谷歌浏览器官方下载网站</a>。</li><li>点击<code>在此下载</code>，接受并安装，取消下载。<br><img src="https://cf.dreamf.fun/image/202408151128949.png" alt="image.png"></li><li>下载界面，浏览器地址栏添加参数<ul><li><code>platform=win64</code>：win64平台</li><li><code>standalone=1</code>：离线安装</li><li><code>statcb=1</code>：</li></ul></li></ol><p><img src="https://cf.dreamf.fun/image/202408151129301.png" alt="image.png"><br><img src="https://cf.dreamf.fun/image/202408151138087.png" alt="image.png"><br>4. 点击手动下载，软件包大小100多M，离线版下载完成。 </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Google </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Google </tag>
+            
+            <tag> 浏览器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>MYSQL远程登录</title>
       <link href="/2024/07/31/MYSQL%E5%A6%82%E4%BD%95%E6%8E%88%E6%9D%83%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/"/>
       <url>/2024/07/31/MYSQL%E5%A6%82%E4%BD%95%E6%8E%88%E6%9D%83%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/</url>
