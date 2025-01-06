@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title></title>
+      <link href="/2025/01/05/Server%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE/"/>
+      <url>/2025/01/05/Server%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<p>[简介]<br>最近在调试server服务器时，经常需要填写开关机原因，以及<code>CTRL+ALT+DELETE</code>,烦不胜烦，从网上找些教程设置一下。</p><h1 id="一、开机自动登录"><a href="#一、开机自动登录" class="headerlink" title="一、开机自动登录"></a>一、开机自动登录</h1><ul><li><p><code>win + r</code>，输入<code>gpedit.msc</code>，打开组策略窗口。</p></li><li><p>在“组策略”窗口，展开“计算机配置”-&gt;“Windows设置”-&gt;“安全设置”-&gt;“本地策略”-&gt;“安全选项”，双击右边的“交互式登录：不需要按CTRL+ALT+DEL”，选中“已启用”，再点击“确定”<br><img src="https://cf.dreamf.fun/image/202501062242648.png" alt="image.png"></p></br></li><li><p><code>win + r</code>，输入<code>control userpasswords2</code>，点击确定<br><img src="https://cf.dreamf.fun/image/202501062241719.png" alt="image.png"></p></li><li><p>“要使用本机，用户必须输入用户名和密码”，去掉前面的勾，点击下面的“确定”<br><img src="https://cf.dreamf.fun/image/202501062241982.png" alt="image.png"></p></li><li><p>出现自动登录窗口，如果此用户有密码，要输入密码，如果没有密码，就直接点击“确定”<br><img src="https://cf.dreamf.fun/image/202501062242447.png" alt="image.png"></p></li><li><p>重启</p></li></ul><h1 id="二、关闭事件跟踪程序"><a href="#二、关闭事件跟踪程序" class="headerlink" title="二、关闭事件跟踪程序"></a>二、关闭事件跟踪程序</h1><ul><li><p>win+r→输入gpedit.msc，打开“本地组策略编辑器”</p></li><li><p>展开“计算机配置”-&gt;“管理模板”-&gt;“配置”-&gt;“本地策略”，找到“关闭事件跟踪程序”,双击打开右边的图，选择“已禁用”，点击确定！<br><img src="https://cf.dreamf.fun/image/202501062238919.png" alt="关闭事件.png"></p></li><li><p>重启</p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Windows </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+            <tag> Server </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>谷歌浏览器离线版下载</title>
       <link href="/2024/08/15/%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%A6%BB%E7%BA%BF%E7%89%88%E4%B8%8B%E8%BD%BD/"/>
       <url>/2024/08/15/%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%A6%BB%E7%BA%BF%E7%89%88%E4%B8%8B%E8%BD%BD/</url>
