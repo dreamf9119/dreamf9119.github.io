@@ -218,6 +218,33 @@
     
     
     <entry>
+      <title>回归win10右键菜单</title>
+      <link href="/2024/06/23/%E5%9B%9E%E5%BD%92win10%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/"/>
+      <url>/2024/06/23/%E5%9B%9E%E5%BD%92win10%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/</url>
+      
+        <content type="html"><![CDATA[<p>[toc]</p><h1 id="恢复win10右键菜单"><a href="#恢复win10右键菜单" class="headerlink" title="恢复win10右键菜单"></a>恢复win10右键菜单</h1><ol><li><p>以管理员方式运行CMD</p></li><li><p>运行下面命令</p><ul><li>reg.exe add “HKCU\Software\Classes\CLSID{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32” &#x2F;f &#x2F;ve</li></ul></li><li><p>重启电脑或者重启资源管理器</p><ul><li>重启资源管理器<ul><li>taskkill &#x2F;f &#x2F;im explorer.exe &amp; start explorer.exe</li></ul></li><li>重启电脑</li></ul></li></ol><h1 id="win11右键菜单"><a href="#win11右键菜单" class="headerlink" title="win11右键菜单"></a>win11右键菜单</h1><ol><li><p>以管理员方式运行CMD</p></li><li><p>运行下面命令</p><ul><li>reg.exe delete “HKCU\Software\Classes\CLSID{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32” &#x2F;va &#x2F;f</li></ul></li><li><p>重启电脑或者重启资源管理器</p><ul><li>重启资源管理器<ul><li>taskkill &#x2F;f &#x2F;im explorer.exe &amp; start explorer.exe</li></ul></li><li>重启电脑</li></ul></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Windows </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+            <tag> win11 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>payload提取boot</title>
       <link href="/2024/06/22/payload%E6%8F%90%E5%8F%96boot.img/"/>
       <url>/2024/06/22/payload%E6%8F%90%E5%8F%96boot.img/</url>
