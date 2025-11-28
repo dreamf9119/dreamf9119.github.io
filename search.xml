@@ -4,6 +4,75 @@
   
     
     <entry>
+      <title></title>
+      <link href="/2025/11/28/%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA/"/>
+      <url>/2025/11/28/%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA/</url>
+      
+        <content type="html"><![CDATA[<p>[简介]<br>    简单记录一下在Linux、ubuntu等系统中针对新磁盘的分区和格式化、挂载等操作。</p><h4 id="1-查看新硬盘"><a href="#1-查看新硬盘" class="headerlink" title="1. 查看新硬盘"></a>1. 查看新硬盘</h4><p>新添加的硬盘，是一个新的硬盘，所以相关的属性信息都没有。可通过<code>lsblk</code>、<code>fdisk</code> 两条命令来查看新硬盘。</p><ul><li>命令：<code>lsblk -f</code><ul><li><code>FSTYPE</code>：分区类型</li><li><code>UUID</code>：标识分区的唯一标识符</li><li><code>MOUNTPOINT</code>：分区挂载的目录<br><img src="https://cf.dreamf.fun/image/20251128191437.png" alt="image.png"></li></ul></li><li>命令：<code>fdisk -l</code><br><img src="https://cf.dreamf.fun/image/20251128191608.png" alt="image.png"></li></ul><p>#提示 <code>/dev/sda</code>已有分区sda1 sda2 sda3，<code>/dev/sdb</code>，这个是新添加的没有进行分区过，这个<code>/dev/sdb</code>硬盘要记住，不用弄错了。</p><h4 id="2-开始分区"><a href="#2-开始分区" class="headerlink" title="2. 开始分区"></a>2. 开始分区</h4><ul><li><strong>分区命令</strong>：<code>fdisk /dev/sdb</code> <br>  执行后就会进行硬盘的操作，通过输入相关命令进行操作。<br><img src="https://cf.dreamf.fun/image/20251128192832.png" alt="image.png"></li><li><strong>获取帮助</strong>：根据提示<strong>Command (m from help)<strong>，可以通过输入</strong>m</strong>获取帮助<ul><li>m 显示命令帮助列表</li><li>p 显示磁盘分区 同<strong>fdisk -l</strong></li><li>n 新增分区</li><li>d 删除分区</li><li>w 写入并退出 (执行这条命令一定要确认清楚再操作)</li><li>q 不保存退出<br><img src="https://cf.dreamf.fun/image/20251128193258.png" alt="image.png"></li></ul></li></ul><p>#提示 分区命令的操作，相关命令的执行结果都会存在内存中，直到通过w命令进行写入。所以在确定输入w命令之前请注意。</p><ul><li><strong>创建新分区</strong>：输入<code>n</code>，并回车。</li><li><strong>分区类型</strong>：输入<code>p</code><ul><li>p：主分区</li><li>e：扩展分区</li></ul><p>  #补充 受 MBR 分区表限制，每块硬盘最多 ​<strong>​4 个主分区​</strong>​（或 3 主分区 + 1 扩展分区）。扩充分区必须再进行分区后才能使用，也就是说它必须还要进行二次分区。那么由扩充分区再分下去的是什么呢？它就是逻辑分区（logical partion），逻辑分区没有数量上限制。</p></li><li><strong>分区个数</strong>：输入<code>1</code></li><li><strong>保存</strong>：输入<code>w</code>，回车完成磁盘分区<br><img src="https://cf.dreamf.fun/image/20251128193912.png" alt="image.png"></li><li><strong>查看成功后分区</strong>：<code>lsblk -f</code>。<br>  同第一次查询的结果对比，<code>sdb</code>已有一个<code>sdb1</code>分区，且已分配一个UUID，但挂载的还是空的。<br><img src="https://cf.dreamf.fun/image/20251128195152.png" alt="image.png"></li></ul><h4 id="3-格式化"><a href="#3-格式化" class="headerlink" title="3. 格式化"></a>3. 格式化</h4><p>  上一步已经成功硬盘分区了，但是还不能使用，没有挂载到具体的目录，在挂载前需要对硬盘进行格式化后才可以挂载。</p><ul><li><strong>命令</strong>：<code>mkfs -t ext4 /dev/sdb1</code><ul><li><code>-t</code> 格式化类型，不加此参数默认是ext2</li><li><code>/dev/sdb1</code> 分过区的硬盘分区，<strong>注意不要格式化错误了</strong><br><img src="https://cf.dreamf.fun/image/20251128195601.png" alt="image.png"></li></ul></li></ul><h4 id="4-挂载磁盘"><a href="#4-挂载磁盘" class="headerlink" title="4. 挂载磁盘"></a>4. 挂载磁盘</h4><ul><li><strong>临时挂载</strong>：<ul><li><strong>挂载命令</strong>：<code>mount 设备名称 挂载目录</code><br><img src="https://cf.dreamf.fun/image/20251128200244.png" alt="image.png"></li></ul></li></ul><p>#注意 <strong>目前只是临时挂载，系统重启后会失效</strong></p><ul><li><strong>永久挂载</strong>：<ul><li><strong>编辑分区表</strong>：<code>vim /etc/fatab</code>，添加挂载信息，实现永久挂载<ul><li>挂载的分区设备<code>UUID</code>或<code>硬盘分区名</code></li><li><strong>挂载点</strong>：</li><li><strong>文件系统类型</strong>：</li><li><strong>挂载选项</strong>：一般默认，即<code>defaults</code></li><li><strong>是否备份</strong>：默认0</li><li><strong>是否检测</strong>：默认0<br> <img src="https://cf.dreamf.fun/image/20251128202521.png"></li></ul></li><li><strong>添加磁盘挂载信息</strong>：这里有两种方式可指定新磁盘信息。<ul><li>**磁盘<code>UUID</code>**：可通过<code>lsblk -f</code>命令查看新磁盘的<code>UUID</code>，UUID是指在一台机器上生成的数字，它保证对在同一时空中的所有机器都是唯一的。</li><li>**<code>硬盘分区名</code>**：即，前面 <strong>&#x2F;dev&#x2F;sdb1</strong></li></ul><p> #注意 当有多块磁盘时，&#x2F;dev&#x2F;sdb1 这类的标识方法，伴随着硬盘与硬盘接口的交换，而改变，安全起见，采用<code>UUID</code>的方式挂载硬盘。</p></li></ul><p> <img src="https://cf.dreamf.fun/image/20251128200436.png" alt="image.png"><br> <img src="https://cf.dreamf.fun/image/20251128203026.png" alt="image.png"></p><ul><li><ul><li><strong>自动挂载</strong>：<code>mount -a</code><ul><li><strong><code>- a</code></strong> 就是auto，自动挂载。</li></ul><p>#补充 <strong>卸载命令：umount 设备名称   |   挂载目录</strong>，<strong>不能在需要卸载的目录执行umount，不然会提示目标忙，无法卸载</strong>。</p></li></ul></li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Windows强制登录跳过</title>
+      <link href="/2025/10/18/Windows%E5%BC%BA%E5%88%B6%E7%99%BB%E5%BD%95%E8%B7%B3%E8%BF%87/"/>
+      <url>/2025/10/18/Windows%E5%BC%BA%E5%88%B6%E7%99%BB%E5%BD%95%E8%B7%B3%E8%BF%87/</url>
+      
+        <content type="html"><![CDATA[<p>[简介]<br>前几天又传出Win11不登陆微软账户无法安装的消息，主要针对的是测试通道26120.6772（Beta）&#x2F;26220.6772（Dev）及以上版本。关于这个消息，在2025年4月份，有过类似的报道，参见《<a href="https://mp.weixin.qq.com/s?__biz=MzA3Nzg3NjYxOQ==&mid=2448178600&idx=1&sn=beb69ec3c19162b42232a4872d539f19&scene=21#wechat_redirect">文章</a>》。</p><p>我们先回顾一下，微软从开始迫使用户使用微软账户登录开始，并未强制执行，留下了一些跳过登录（可使用本地账户登录）的方法。大概有4种方法比较方便实用：</p><ol><li><p>随便输入一个错误的邮箱和密码（例如<code>1@1.com</code>）；</p></li><li><p>添加注册表方式1：微软在C盘中预留了一个批处理bypassnro.cmd，用户手动执行这个批处理即可添加注册表；</p></li><li><p>添加注册表方式2：不用微软预留的批处理，用户手动修改注册表，本质上就是方法②；</p></li><li><p>使用命令start ms-cxh:localonly调出本地账户创建界面。</p></li></ol><p>早在今年4月份的时候，微软就把方法②中预留的批处理删除了，但是修改注册表的方法不变，本质上方法②和方法③是没区别的，因此方法③一直是可用的，所以截至今年4月份，上面的4种常见方法，仅方式②失效了。</p><p>那么最近传出消息，到底微软又封掉了哪些方法呢？经过测试（Build 26220.6780）如下图所示，输入错误的账户密码已经不好使了，即方法①凉凉~<br><img src="https://cf.dreamf.fun/image/20251018230029.png" alt="image.png"></p><p>步骤一、断网！</p><p>步骤二、使用快捷键“Shift+F10”调出CMD命令窗口，输入：“regedit”，将注册表编辑器打开，展开注册表HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion，新建DWORD（32位），名称为BypassNRO，值修改为1即可。</p><p><img src="https://mmbiz.qpic.cn/mmbiz_png/pxopGibm8O51z0U8MBpuiajqrXYrgEO2mtPEvmzJQblQOOibOHySnKJshdHa4uS0VAia9jZQKIsg1fuiab8JFCa9DAA/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1#imgIndex=5" alt="图片"></p><p><img src="https://mmbiz.qpic.cn/mmbiz_png/pxopGibm8O51z0U8MBpuiajqrXYrgEO2mticibAs9LkiaxnVC9xar8HcZyy7T0l75R5OanIOk4urVicuCwfCTjPSXic6g/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1#imgIndex=6" alt="图片"></p><p>步骤三、然后重启电脑，可以使用命令shutdown &#x2F;r &#x2F;t 0</p><p><img src="https://mmbiz.qpic.cn/mmbiz_png/pxopGibm8O51z0U8MBpuiajqrXYrgEO2mt4wa7IcYAxUngeM5Kjfia5iaIE4HEu7FoqgLB3AB43cDPPnmiaicEwCN03w/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1#imgIndex=7" alt="图片"></p><p>经测试，方法③依然是有效的！但务必断开网络！！！</p><p>综上，跳过微软账户登录的方法中，修改注册表的方法从始至终一直都是有效的，只不过以前微软在C盘给预留了一个批处理，我们直接执行它就修改了注册表，半年前微软就把这个批处理删除了，所以需要我们手动修改注册表，但本质上是一回事，只是变得麻烦了一点。而最近微软又把其他方法也都给封掉了，但修改注册表的方法一直不变。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/2025/07/16/%E7%97%85%E6%AF%92/"/>
+      <url>/2025/07/16/%E7%97%85%E6%AF%92/</url>
+      
+        <content type="html"><![CDATA[<p>[简介]<br>记录一下工作中遇到的病毒，及其相应的文件特征、路径，以及相应的处理方式。</p><p>[目录]</p><ul><li>[[#一、蠕虫病毒]]<ul><li>[[#1、病毒特征]]</li><li>[[#2、感染特点]]</li><li>[[#3、处理方法]]</li></ul></li></ul><h1 id="一、蠕虫病毒"><a href="#一、蠕虫病毒" class="headerlink" title="一、蠕虫病毒"></a>一、蠕虫病毒</h1><h3 id="1、病毒特征"><a href="#1、病毒特征" class="headerlink" title="1、病毒特征"></a>1、病毒特征</h3><ul><li><p>病毒名：Synaptics.exe</p><ul><li>该病毒既可以通过带有恶意宏代码的Excel文档传播，也可以通过对正常的EXE文件进行偷梁换柱的方式传播。一旦感染，病毒会拦截用户新建或打开Excel文档的行为，并将这些文档替换成带有恶意宏代码的文档，进而下载并执行病毒主体文件Synaptics.exe，进一步感染其他机器。</li></ul></li><li><p>创建原始病毒文件夹：<code>C:\ProgramData\Synaptics</code>，内含：</p><ul><li><code>WS</code>子文件夹(为空)</li><li>Synaptics.exe<ul><li>大小：754KB</li></ul></li></ul></li><li><p>释放病毒文件：<code>C:\用户\***\AppData\Local\Temp</code>下</p><ul><li>文件：qk3296d7.exe<ul><li>大小：753KB</li><li>CRC32：7EB2AB4D</li></ul></li></ul></li></ul><h3 id="2、感染特点"><a href="#2、感染特点" class="headerlink" title="2、感染特点"></a>2、感染特点</h3><ul><li> 运行第一次感染的可执行程序，并使用其感染程序图标，其后随着使用者运行感染程序而改变。</li><li> 被感染文件首次执行时会在同文件夹内新产生一个和感染文件同名且前缀为：“ <code>._cache_</code> ”的病毒文件。</li><li>系统被感染后，对任何插入的U盘，都会被病毒搜索到，并立即采取遍历可执行文件的方式感染。成为新的感染源，使用者在不知不觉中，只要在其它电脑上运行U盘中的程序，就会感染其它电脑。</li><li>病毒只感染可执行文件，无法感染压缩文件。</li><li>病毒首次在硬盘或U盘被触发传染时，硬盘灯或U盘指示灯会狂闪（说明在病毒在疯狂感染文件，也就是写文件的过程），同时会莫名弹窗提示文件没有权限，这可能是病毒Bug，也是提醒我们系统已经异常的警报。</li><li>其在注册表中创建2个启动项：<ul><li>路径：<code>[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SharedTools\MSConfig\startupreg\mydesk]</code>  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&quot;key&quot;=&quot;SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run&quot;  </span><br><span class="line">&quot;item&quot;=&quot;mydesk&quot;  </span><br><span class="line">&quot;hkey&quot;=&quot;HKCU&quot;  </span><br><span class="line">&quot;command&quot;=&quot;C:\\Users\\WWH\\Desktop\\mydesk 1.0.7.0\\mydesk.exe&quot;  </span><br><span class="line">&quot;inimapping&quot;=&quot;0&quot;  </span><br><span class="line">&quot;YEAR&quot;=dword:000007e4  </span><br><span class="line">&quot;MONTH&quot;=dword:00000004  </span><br><span class="line">&quot;DAY&quot;=dword:00000002  </span><br><span class="line">&quot;HOUR&quot;=dword:00000017  </span><br><span class="line">   &quot;MINUTE&quot;=dword:0000001e  </span><br><span class="line">&quot;SECOND&quot;=dword:0000001e</span><br></pre></td></tr></table></figure></li><li>路径：<code>[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SharedTools\MSConfig\startupreg\Synaptics Pointing Device Driver]</code><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&quot;key&quot;=&quot;SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Run&quot;  </span><br><span class="line">&quot;item&quot;=&quot;Synaptics Pointing Device Driver&quot;  </span><br><span class="line">&quot;hkey&quot;=&quot;HKLM&quot;  </span><br><span class="line">&quot;command&quot;=&quot;C:\\ProgramData\\Synaptics\\Synaptics.exe&quot;  </span><br><span class="line">&quot;inimapping&quot;=&quot;0&quot;  </span><br><span class="line">&quot;YEAR&quot;=dword:000007e4  </span><br><span class="line">&quot;MONTH&quot;=dword:00000004  </span><br><span class="line">&quot;DAY&quot;=dword:00000002  </span><br><span class="line">&quot;HOUR&quot;=dword:00000017  </span><br><span class="line">&quot;MINUTE&quot;=dword:0000001e  </span><br><span class="line">&quot;SECOND&quot;=dword:0000001e</span><br></pre></td></tr></table></figure></li></ul></li></ul><h3 id="3、处理方法"><a href="#3、处理方法" class="headerlink" title="3、处理方法"></a>3、处理方法</h3><ul><li>手动操作：<ul><li><p>先删除病毒的自启动项（其在注册表中创建的2个启动项，上文所示）。</p></li><li><p>再删除病毒本体及复制体文件及文件夹（上文病毒特征中所示的文件及文件夹）。</p></li><li><p>用火绒全盘查杀，并重新启动系统，再次全盘查杀。【注意：第一遍全盘查杀后一定要重启电脑，然后不要开启任何软件再查杀一遍】</p></li><li><p>最后系统正常，删除火绒隔离区内的备份的病毒文件。</p></li></ul></li><li>蠕虫病毒专杀工具<ul><li>Gitcode：<code>https://gitcode.com/open-source-toolkit/b4e00/</code></li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 病毒 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 蠕虫 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Server服务器配置</title>
       <link href="/2025/01/05/Server%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE/"/>
       <url>/2025/01/05/Server%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE/</url>
@@ -222,7 +291,7 @@
       <link href="/2024/06/23/%E5%9B%9E%E5%BD%92win10%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/"/>
       <url>/2024/06/23/%E5%9B%9E%E5%BD%92win10%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/</url>
       
-        <content type="html"><![CDATA[<p>[toc]</p><h1 id="恢复win10右键菜单"><a href="#恢复win10右键菜单" class="headerlink" title="恢复win10右键菜单"></a>恢复win10右键菜单</h1><ol><li><p>以管理员方式运行CMD</p></li><li><p>运行下面命令</p><ul><li>reg.exe add “HKCU\Software\Classes\CLSID{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32” &#x2F;f &#x2F;ve</li></ul></li><li><p>重启电脑或者重启资源管理器</p><ul><li>重启资源管理器<ul><li>taskkill &#x2F;f &#x2F;im explorer.exe &amp; start explorer.exe</li></ul></li><li>重启电脑</li></ul></li></ol><h1 id="win11右键菜单"><a href="#win11右键菜单" class="headerlink" title="win11右键菜单"></a>win11右键菜单</h1><ol><li><p>以管理员方式运行CMD</p></li><li><p>运行下面命令</p><ul><li>reg.exe delete “HKCU\Software\Classes\CLSID{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32” &#x2F;va &#x2F;f</li></ul></li><li><p>重启电脑或者重启资源管理器</p><ul><li>重启资源管理器<ul><li>taskkill &#x2F;f &#x2F;im explorer.exe &amp; start explorer.exe</li></ul></li><li>重启电脑</li></ul></li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="恢复win10右键菜单"><a href="#恢复win10右键菜单" class="headerlink" title="恢复win10右键菜单"></a>恢复win10右键菜单</h1><ol><li><p>以管理员方式运行CMD</p></li><li><p>运行下面命令</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">reg.exe add &quot;HKCU\Software\Classes\CLSID\&#123;86ca1aa0-34aa-4e8b-a509-50c905bae2a2&#125;\InprocServer32&quot; /f /ve</span><br></pre></td></tr></table></figure></li><li><p>重启电脑或者重启资源管理器</p><ul><li>重启资源管理器<ul><li>taskkill &#x2F;f &#x2F;im explorer.exe &amp; start explorer.exe</li></ul></li><li>重启电脑</li></ul></li></ol><h1 id="win11右键菜单"><a href="#win11右键菜单" class="headerlink" title="win11右键菜单"></a>win11右键菜单</h1><ol><li><p>以管理员方式运行CMD</p></li><li><p>运行下面命令</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">reg.exe delete &quot;HKCU\Software\Classes\CLSID\&#123;86ca1aa0-34aa-4e8b-a509-50c905bae2a2&#125;\InprocServer32&quot; /va /f</span><br></pre></td></tr></table></figure></li><li><p>重启电脑或者重启资源管理器</p><ul><li>重启资源管理器<ul><li>taskkill &#x2F;f &#x2F;im explorer.exe &amp; start explorer.exe</li></ul></li><li>重启电脑</li></ul></li></ol>]]></content>
       
       
       <categories>
